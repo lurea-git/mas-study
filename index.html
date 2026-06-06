@@ -131,6 +131,31 @@ function getPairsFor(sec) {
             });
         }
     }
+
+    // Special for 1.2: add the missing middle paragraphs (sequence prediction framing, background on limitations, context window) that were not in the current master harvest. User reported "中间丢了很多内容".
+    if (sec === "1.2") {
+        const missingMids = [
+            {
+                id: "PARA-019-1.2",
+                original: "To apply these models to solve tasks, early efforts focused on framing multiple tasks as sequence prediction problems. For example, to classify text, a description of the classification problem is provided, followed by a list of labels and a prompt asking, “ <problem> <labels> Which of the provided labels is the correct class?”. Similarly, to summarize a given passage, given a prompt structured as “ <passage> The summary of the passage above is ..”, the model is induced to generate a summary of the passage. It turns out that framing tasks as sequence prediction problems allows the models to leverage knowledge gained during training to perform a wide range of tasks (e.g., language translation, sentiment analysis, question answering, dialogue generation, named entity recognition, syntax parsing, code synthesis, paraphrasing, grammar correction etc.) beyond their initial training objectives. A Primer on Generative AI | 5",
+                translation: "为了应用这些模型来解决任务，早期的努力集中在将多项任务构建为序列预测问题。例如，为了对文本进行分类，提供分类问题的描述，然后是标签列表和一个提示，询问：“<问题> <标签> 提供的标签中哪一个是正确的类别？”。同样地，为了总结给定的段落，在给出一个结构为“<段落> 上述段落的总结是..”的提示后，模型会被引导去生成该段落的总结。事实证明，将任务构建为序列预测问题使得模型能够利用在训练期间获得的知识，来执行广泛的任务（例如：语言翻译、情感分析、问答、对话生成、命名实体识别、语法解析、代码合成、释义、语法纠错等），这远远超出了它们最初的训练目标。 生成式 AI 入门 | 5"
+            },
+            {
+                id: "PARA-020-1.2",
+                original: "This background is important to understand the capabilities and limitations of these models when applied to complex tasks. For example, the reasoning capabilities observed in these models (e.g. 2 apples + 10 apples = 12 apples) are often limited to scenarios well represented in language models, have become leading prompt engineering approaches. Beyond prompt engineering, fine-tuning models on task-specific instruction data and explicitly collected human feedback data (Ouyang et al. 2022) have proven to enhance model alignment - efforts aimed at ensuring that generated outputs align with human intentions, preferences, and values.",
+                translation: "这一背景对于理解这些模型在应用于复杂任务时的能力和局限性非常重要。例如，在这些模型中观察到的推理能力（如 2 个苹果 + 10 个苹果 = 12 个苹果）往往局限于语言模型中能够很好表示的场景，这已经成为了领先的提示工程方法。除了提示工程之外，针对特定任务的指令数据和明确收集的人类反馈数据对模型进行微调（Ouyang 等人，2022 年），已被证明能够增强模型对齐——即旨在确保生成的输出与人类意图、偏好和价值观保持一致的努力。"
+            },
+            {
+                id: "PARA-021-1.2",
+                original: "Finally, while LLMs can be instructed to generate text sequences that solve tasks, the amount of text they can process at a time is fixed, constrained by what is known as the context window.",
+                translation: "最后，虽然可以指示 LLM 生成文本序列来解决任务，但它们一次能处理的文本量是固定的，这受到所谓的“上下文窗口”的限制。"
+            }
+        ];
+        for (const mid of missingMids) {
+            const hasIt = res.some(p => p.original && p.original.includes(mid.original.substring(0, 50)));
+            if (!hasIt) res.push(mid);
+        }
+    }
     if (res.length === 0) {
         // last resort broad match
         res = masterPairs.filter(p => (p.original || "").toLowerCase().includes(sec.split(".")[0]));
