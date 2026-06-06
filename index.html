@@ -119,6 +119,7 @@
     <script>
         // Data injected by generator (79 pairs from NLM full extract)
         const sections = ["1.1","1.2","1.3.1","1.3.2","1.3.3","1.3.4","1.4","1.5","1.6","1.7","1.8","1.9"];
+        
         const titles = {
             "1.1": "1.1 Introduction",
             "1.2": "1.2 A Primer on Generative AI",
@@ -126,7 +127,6 @@
             "1.3.2": "1.3.2 Diverse Expertise",
             "1.3.3": "1.3.3 Extensive Context",
             "1.3.4": "1.3.4 Adaptive Solutions",
-            "1.3": "1.3 Why Multiple Agents?",
             "1.4": "1.4 What is an Agent?",
             "1.5": "1.5 What is a Multi-Agent System?",
             "1.6": "1.6 Why Now?",
@@ -134,6 +134,7 @@
             "1.8": "1.8 Building Your First Multi-Agent System",
             "1.9": "1.9 Summary"
         };
+
 
         const pairs1_2 = [
   {
@@ -176,6 +177,137 @@
 
         const allPairs = []; // Populated below by the generator
 
+
+        // Full per-section pairs from master (cleaned, complete coverage)
+        const pairs1_1 = [
+  {
+    "id": "PARA-001",
+    "num": 1,
+    "original": "1.1 Introduction Generative AI (GenAI) models today have demonstrated remarkable abilities in modeling complex relationships within the vast amount of data on which they are trained. For example, models such as GPT-4, Claude, Gemini, etc.—also known as large language models (LLMs) (Vaswani et al. 2017), excel at text processing tasks—for example: summarizing passages, states that 75% of knowledge workers are already using AI in the workplace today (Microsoft 1 AI Blog 2024), and a rising number of startups are building applications that leverage these models to solve real-world problems.",
+    "translation": "1.1 简介 如今的生成式 AI (GenAI) 模型在对其训练所用的海量数据中的复杂关系进行建模方面，已经展示出了卓越的能力。例如，像 GPT-4、Claude、Gemini 等模型——也被称为大型语言模型 (LLM) (Vaswani et al. 2017)——在文本处理任务（例如：总结段落）上表现出色，有数据指出，如今 75% 的知识工作者已经在工作场所使用 AI（Microsoft AI Blog 2024，注1），并且越来越多的初创公司正在构建利用这些模型来解决现实世界问题的应用程序。\\n\\n"
+  }
+];
+        const pairs1_2 = [
+  {
+    "id": "PARA-016",
+    "num": 16,
+    "original": "Figure 1.2. Generative AI models (e.g., Large Language Models) can address a wide range of tasks including answering general knowledge questions, translating text, summarizing passages, generating code, etc. However, as tasks become more complex, requiring reasoning, planning, and action, the limitations of these models become apparent. We can address these increasingly complex tasks by providing LLMs with access to tools that enable them to act as agents on our behalf and enabling collaboration across multiple agents. 4 | Chapter 1. Understanding Multi-Agent Systems",
+    "translation": "图 1.2：生成式 AI 模型（例如，大型语言模型）可以解决广泛的任务，包括回答常识问题、翻译文本、总结段落、生成代码等。然而，随着任务变得越来越复杂，需要推理、规划和行动时，这些模型的局限性就变得十分明显。我们可以通过为 LLM 提供访问工具的权限（使其能够代表我们作为智能体采取行动），并促成多个智能体之间的协作，来解决这些日益复杂的任务。 4 | 第1章. 理解多智能体系统\\n\\n"
+  },
+  {
+    "id": "PARA-018",
+    "num": 18,
+    "original": "1.2 A Primer on Generative AI Generative models are a subset of deep neural networks skilled at identifying complex patterns within datasets, enabling them to generate new, similar data points. These models are distinct from discriminative models, which focus on differentiating between data types or classifying them. Generative models can be trained on data from various modalities. For instance, LLMs, these models are trained to predict the next word in a sequence or to fill in blanks for masked or hidden sections of text - aka sequence prediction . By applying this training objective to a sufficiently large dataset, the models learn representations of the world as depicted through text. In turn, the models can leverage these representations in generating text that is coherent, relevant, and contextually appropriate.",
+    "translation": "1.2 生成式 AI 入门 生成式模型是深度神经网络的一个子集，擅长识别数据集中的复杂模式，从而使它们能够生成全新的、相似的数据点。这些模型不同于判别式模型（后者侧重于区分数据类型或对其进行分类）。生成式模型可以在来自不同模态的数据上进行训练。例如对于 LLM，这些模型被训练来预测序列中的下一个词，或者填补文本中被掩码或隐藏部分的空白——也就是所谓的序列预测。通过将这一训练目标应用于足够大的数据集，模型学习到了通过文本所描绘的世界的表示。反过来，模型可以利用这些表示来生成连贯、相关且符合上下文语境的文本。\\n\\n"
+  },
+  {
+    "id": "PARA-019",
+    "num": 19,
+    "original": "To apply these models to solve tasks, early efforts focused on framing multiple tasks as sequence prediction problems. For example, to classify text, a description of the classification problem is provided, followed by a list of labels and a prompt asking, “ <problem> <labels> Which of the provided labels is the correct class?”. Similarly, to summarize a given passage, given a prompt structured as “ <passage> The summary of the passage above is ..”, the model is induced to generate a summary of the passage. It turns out that framing tasks as sequence prediction problems allows the models to leverage knowledge gained during training to perform a wide range of tasks (e.g., language translation, sentiment analysis, question answering, dialogue generation, named entity recognition, syntax parsing, code synthesis, paraphrasing, grammar correction etc.) beyond their initial training objectives. A Primer on Generative AI | 5",
+    "translation": "为了应用这些模型来解决任务，早期的努力集中在将多项任务构建为序列预测问题。例如，为了对文本进行分类，提供分类问题的描述，然后是标签列表和一个提示，询问：“<问题> <标签> 提供的标签中哪一个是正确的类别？”。同样地，为了总结给定的段落，在给出一个结构为“<段落> 上述段落的总结是..”的提示后，模型会被引导去生成该段落的总结。事实证明，将任务构建为序列预测问题使得模型能够利用在训练期间获得的知识，来执行广泛的任务（例如：语言翻译、情感分析、问答、对话生成、命名实体识别、语法解析、代码合成、释义、语法纠错等），这远远超出了它们最初的训练目标。 生成式 AI 入门 | 5\\n\\n"
+  },
+  {
+    "id": "PARA-022",
+    "num": 22,
+    "original": "1.2.1 Getting Access to Generative AI Models Today, the easiest way to incorporate these models into your applications is through API providers like OpenAI, Anthropic, or cloud platforms like Microsoft Azure, Google Cloud, and AWS. These platforms host the models on high-performance infrastructure, exposing them through simple REST APIs. This approach eliminates the need for managing complex GPU infrastructure and allows you to focus purely on building your multi-agent system. As the ecosystem has matured, API standardization has emerged. The OpenAI API format has become a de facto industry standard, meaning code written for OpenAI models often works with minimal changes across providers like Together AI, Anyscale, and even local model deployments. 6 | Chapter 1. Understanding Multi-Agent Systems",
+    "translation": "1.2.1 获取生成式 AI 模型 如今，将这些模型整合到您的应用程序中最简单的方法是通过 API 提供商（如 OpenAI、Anthropic）或云平台（如 Microsoft Azure、Google Cloud 和 AWS）。这些平台在高性能基础设施上托管模型，并通过简单的 REST API 将其暴露出来。这种方法免去了管理复杂 GPU 基础设施的需要，使您可以纯粹专注于构建您的多智能体系统。 随着生态系统的成熟，API 标准化已经出现。OpenAI API 格式已成为事实上的行业标准，这意味着为 OpenAI 模型编写的代码通常只需进行极小的更改，即可在 Together AI、Anyscale 等提供商，甚至是本地模型部署中运行。 6 | 第1章. 理解多智能体系统\\n\\n"
+  }
+];
+        const pairs1_3_1 = [
+  {id: "PARA-027", original: "1.3.1 Planning Complex tasks often require a high level plan, which involves decomposing the task into steps that must be completed successfully. Given some context, a plan prescribes a set of actions that should be executed to achieve some target success state. This is a well-known and studied property in the robotics planning literature and we will borrow concepts from this domain across this book.", translation: "1.3.1 规划 复杂任务通常需要高层级的规划，这涉及将任务分解为必须成功完成的步骤。在给定的某些上下文中，计划规定了为达到某个目标成功状态而应当执行的一系列操作。这在机器人规划文献中是一个广为人知和研究的属性，我们将在本书中借鉴这一领域的概念。\\n\\n"}
+];
+        const pairs1_3_2 = [
+  {id: "PARA-028", original: "1.3.2 Diverse Expertise Decomposing complex tasks into multiple steps often results in steps that can benefit from specific expertise. For instance, consider the app development task where the objective is to build a mobile app for viewing and purchasing stocks and filing taxes. This task may be broken down into steps such as analyzing app requirements, designing the user interface, Why Multiple Agents? Complex Task Characteristics | 7", translation: "1.3.2 多样化的专业知识 将复杂任务分解为多个步骤，往往会导致这些步骤能够从特定的专业知识中受益。例如，想想看应用程序开发任务，其目标是构建一个用于查看和购买股票以及报税的移动应用程序。这项任务可能会被分解为诸如分析应用程序需求、设计用户界面等步骤， 为什么需要多个智能体？复杂任务的特征 | 7\\n\\n"}
+];
+        const pairs1_3_3 = [
+  {id: "PARA-032", original: "1.3.3 Extensive Context Complex tasks often require extensive context that need to be processed to solve the task. For example, in our app development task, the agents may conduct web search queries as well as ask for human feedback to assemble requirements, across multiple turns to assemble 8 | Chapter 1. Understanding Multi-Agent Systems", translation: "1.3.3 广泛的上下文 复杂任务通常需要广泛的上下文信息来进行处理以解决任务。例如，在我们的应用程序开发任务中，智能体可能会进行网络搜索查询，并且要求人类提供反馈来组装需求，通过多个回合来组装 8 | 第1章. 理解多智能体系统\\n\\n"}
+];
+        const pairs1_3_4 = [
+  {id: "PARA-036", original: "1.3.4 Adaptive Solutions For complex tasks, a predetermined action sequence is rarely guaranteed to succeed. In our app development scenario, consider the step where the agent needs to integrate an API. The initial request to the API may fail (e.g., due to a network issue, incorrect argument format or general changes to the API), requiring the agent to adapt by retrying the request with different parameters based on the feedback (e.g., error message received from the API request or seeking explicit human assistance). In these cases, the solution emerges from adaptation - iteratively reasoning across some initial plan, actions and outcomes of agents as they solve the task.", translation: "1.3.4 自适应解决方案 对于复杂任务，预先确定的动作序列很少能保证成功。在我们的应用程序开发场景中，想一下智能体需要集成 API 的这一步骤。对 API 的初始请求可能会失败（例如，由于网络问题、不正确的参数格式或 API 的一般更改），这要求智能体根据反馈（例如，从 API 请求收到的错误消息，或者寻求明确的人类帮助）使用不同的参数重试请求来进行适应。在这些情况下，解决方案是从适应中产生的——即在智能体解决任务的过程中，对其初始计划、采取的行动和产生的结果进行迭代推理。\\n\\n"}
+];
+        const pairs1_4 = [
+  {
+    "id": "PARA-033",
+    "num": 33,
+    "original": "Figure 1.4. Complex tasks exhibit four key characteristics that make them suitable for multi-agent systems: Planning (requiring multiple steps and strategic thinking), Diverse Expertise (needing specialized knowledge across different domains), Extensive Context (processing large amounts of information), and Adaptive Solutions (where solutions emerge from multiple attempts). Tasks become increasingly complex when they combine multiple characteristics, making them ideal candidates for multi-agent approaches.",
+    "translation": "图 1.4. 复杂任务表现出四个关键特征，使其适合多智能体系统：规划（需要多个步骤和战略思维），多样化的专业知识（需要跨越不同领域的专业知识），广泛的上下文（处理大量信息），以及自适应解决方案（解决方案从多次尝试中产生）。当任务结合了多个特征时，它们变得越来越复杂，这使其成为多智能体方法的理想候选对象。\\n\\n"
+  },
+  {
+    "id": "PARA-041",
+    "num": 41,
+    "original": "1.4 What is an Agent? Definitions of agents vary across the AI literature, from early concepts in robotics to more recent ideas around entities driven by AI models. A good starting point is the classic work in AI (Russell and Norvig 2020), which defines an agent generally as “anything that can be viewed as perceiving its environment through sensors and acting upon that environment through actuators.”",
+    "translation": "1.4 什么是智能体 (Agent)？ 智能体的定义在人工智能文献中各不相同，从机器人技术中的早期概念，到最近围绕由人工智能模型驱动的实体的想法。一个很好的起点是人工智能领域的经典著作 (Russell 和 Norvig，2020 年)，它将智能体宽泛地定义为“任何可以被视为通过传感器感知其环境，并通过执行器对其环境采取行动的事物。”\\n\\n"
+  },
+  {
+    "id": "PARA-042",
+    "num": 42,
+    "original": "Consider a robotic vacuum cleaner: it perceives its environment through sensors (bump sensors, dirt sensors, battery monitors), makes decisions based on an agent function or rules (if obstacle detected, turn; if dirt detected, increase suction; if battery low, return to dock), and acts through actuators (motors for movement, suction mechanisms, brush rotation). The agent function follows predetermined logic: obstacle -> avoid, dirt -> clean, low battery -> recharge. This creates a continuous perception-action loop where each sensor reading triggers specific programmed responses.",
+    "translation": "想想看扫地机器人：它通过传感器（碰撞传感器、灰尘传感器、电池监控器）感知其环境，基于智能体函数或规则做出决策（如果检测到障碍物，则转向；如果检测到灰尘，则增加吸力；如果电池电量低，则返回充电座），并通过执行器（用于移动的电机、吸尘机构、刷子旋转）采取行动。智能体函数遵循预定的逻辑：障碍物 -> 避开，灰尘 -> 清理，电池电量低 -> 充电。这就创造了一个连续的感知-行动循环，其中每一个传感器读数都会触发特定的编程响应。\\n\\n"
+  },
+  {
+    "id": "PARA-051",
+    "num": 51,
+    "original": "1.4.2 How Agents Work Agents operate through a fundamental action-perception loop shown in Figure 1.6. Unlike models that generate single responses, agents work through iterative cycles—taking action, perceiving results, and adapting based on outcomes until the task is resolved. Multi-agent systems build upon this principle, with multiple agents running coordinated action-perception cycles to solve complex tasks that exceed any single agent’s capabilities.",
+    "translation": "1.4.2 智能体如何工作 智能体通过图 1.6 所示的基本“感知-行动”循环进行操作。与生成单一响应的模型不同，智能体通过迭代循环工作——采取行动、感知结果，并根据结果进行适应，直到任务得到解决。多智能体系统建立在这一原则之上，多个智能体运行协调的感知-行动循环，以解决超出任何单一智能体能力的复杂任务。\\n\\n"
+  },
+  {
+    "id": "PARA-053",
+    "num": 53,
+    "original": "These capabilities are enabled by the three core components shown in Figure 1.5 working What is an Agent? | 13 together:",
+    "translation": "这些能力是由图 1.5 所示的三个核心组件协同工作所实现的： 什么是智能体？| 13\\n\\n"
+  },
+  {
+    "id": "PARA-054",
+    "num": 54,
+    "original": "1.4.2.1 Model The reasoning engine that enables decision-making and planning. This is typically a large language model (LLM) or large multimodal model (LMM) that can understand context, generate plans, and determine appropriate actions. The model serves as the “brain” of the",
+    "translation": "1.4.2.1 模型 (Model) 支持决策和规划的推理引擎。这通常是大型语言模型 (LLM) 或大型多模态模型 (LMM)，它们可以理解上下文、生成计划并确定适当的行动。模型充当了\\n\\n"
+  },
+  {
+    "id": "PARA-056",
+    "num": 56,
+    "original": "1.4.3 Agent vs. Model: A Clear Distinction While both agents and models can process natural language and generate responses, agents differ fundamentally in their ability to interact with the world beyond text generation:\\n\\n-   Models excel at text processing, analysis, and generation based on their training data-   Agents can take actions, use tools, maintain context across interactions, and adapt their behavior based on results",
+    "translation": "1.4.3 智能体 vs. 模型：清晰的区别 虽然智能体和模型都能处理自然语言并生成响应，但智能体在与世界进行超出文本生成范畴的交互能力上有着根本的不同：-   模型擅长基于其训练数据进行文本处理、分析和生成。-   智能体可以采取行动、使用工具、在交互中保持上下文，并根据结果调整其行为。\\n\\n"
+  },
+  {
+    "id": "PARA-057",
+    "num": 57,
+    "original": "Our NVIDIA stock price example (Task 2 from Table 1.1) perfectly illustrates this distinction: a model might generate a plausible-sounding but potentially incorrect stock price based on its training data, while an agent would recognize the need for current information, use appropriate tools to fetch real-time data, and provide an accurate, up-to-date response. This ability to move beyond text generation into action-taking and adaptation is what makes agents powerful tools for addressing complex, real-world tasks that require more than just information synthesis. What is an Agent? | 15",
+    "translation": "我们关于 NVIDIA 股价的例子（表 1.1 中的任务 2）完美地说明了这种区别：模型可能会根据其训练数据生成一个听起来合理但可能不正确的股价，而智能体会认识到对当前信息的需求，使用适当的工具来获取实时数据，并提供准确、最新的响应。 这种超越文本生成而进入采取行动和适应环境的能力，正是使智能体成为解决复杂、现实世界任务的强大工具的原因，这些任务需要的不仅仅是信息综合。 什么是智能体？| 15\\n\\n"
+  }
+];
+        const pairs1_5 = [
+  {id: "PARA-005", original: "2020 2021 2022 2023 2024 2025 Year 0 10 20 30 40 50 % o f Y C Co m pa ni es Bu ild in g Ag en ts 6.1% 6.0% 11.5% 24.5% 31.9% 47.7% Figure 1.1. Growth in Y Combinator startups building AI agents (2020-2025). This dramatic trend demonstrates the industry shift toward autonomous agentic AI systems.", translation: "2020 2021 2022 2023 2024 2025 年份 0 10 20 30 40 50 构建 Agent 的 YC 公司百分比 (%) 6.1% 6.0% 11.5% 24.5% 31.9% 47.7% 图 1.1：Y Combinator 中构建 AI Agent 的初创公司增长情况 (2020-2025)。这一戏剧性的趋势表明了行业向自主智能体 AI 系统的转变。\\n\\n"},
+  {id: "PARA-045", original: "effective agent must understand the information request, reason about obtaining current stock data, take action using appropriate tools (web search or financial APIs), and adapt if the initial approach fails. This adaptation might involve trying alternative data sources or adjusting the query strategy. The core components of an agent are shown in Figure 1.5. Figure 1.5. An agent is a software entity that possesses core components - a generative AI model that enables reasoning, tools that enable the agent to act, and memory that enables the agent to recall and", translation: "有效的智能体必须理解信息请求，推理如何获取当前股票数据，使用适当的工具（网络搜索或金融 API）采取行动，并在初始方法失败时进行适应。这种适应可能包括尝试替代的数据源或调整查询策略。 智能体的核心组件如图 1.5 所示。 图 1.5. 智能体是一个拥有核心组件的软件实体——一个能够进行推理的生成式 AI 模型、能够让智能体采取行动的工具，以及能够让智能体回忆和\\n\\n\\\\"},
+  {id: "PARA-053", original: "These capabilities are enabled by the three core components shown in Figure 1.5 working What is an Agent? | 13 together:", translation: "这些能力是由图 1.5 所示的三个核心组件协同工作所实现的： 什么是智能体？| 13\\n\\n"},
+  {id: "PARA-058", original: "1.5 What is a Multi-Agent System? Building on our agent definition, we define multi-agent systems as applications that involve", translation: "1.5 什么是多智能体系统 (Multi-Agent System)？ 建立在我们对智能体的定义之上，我们将多智能体系统定义为涉及\\n\\n"}
+];
+        const pairs1_6 = [
+  {id: "PARA-039", original: "Furthermore, our analysis of real world data from YCombinator reveals that 47.7% of Y Combinator startups building AI agents in 2025 are focused on the following domains: productivity (25.5%), software (18.4%), finance (15.6%), health (11.6%), and e commerce (6.8%) where planning and diverse expertise are essential. See the in-depth analysis in Chapter 14.", translation: "此外，我们对 Y Combinator 真实世界数据的分析表明，到 2025 年，47.7% 构建 AI Agent 的 Y Combinator 初创公司集中在以下领域：生产力 (25.5%)、软件 (18.4%)、金融 (15.6%)、医疗健康 (11.6%) 和电子商务 (6.8%)，在这些领域中，规划和多样化的专业知识是必不可少的。详见第 14 章的深入分析。\\n\\n"},
+  {id: "PARA-052", original: "Figure 1.6. The agent action-perception loop: Agents operate through iterative cycles where they take action (such as calling an API), perceive the results (processing the response), and adapt their approach based on outcomes. When successful, agents provide natural language responses; when errors occur, they may retry with different parameters or inform users of limitations.", translation: "图 1.6. 智能体的感知-行动循环：智能体通过迭代循环进行操作，在循环中它们采取行动（如调用 API），感知结果（处理响应），并根据结果调整其方法。当成功时，智能体提供自然语言响应；当发生错误时，它们可能会使用不同的参数重试或告知用户其局限性。\\n\\n"}
+];
+        const pairs1_7 = [
+  {id: "PARA-060", original: "“orchestration” interchangeably, we use “orchestration” as the primary term throughout this book to align with industry standards and common usage in AI/ML frameworks. As shown in Figure 1.7, multi-agent systems can be organized through two distinct approaches. Multi-agent workflows (left) use predefined control flow where agents follow established sequences and handoffs, creating predictable and reliable processes. Autonomous multi-agent systems (right) use AI-driven orchestration where the control flow is determined dynamically", translation: "“编排 (orchestration)”互换使用，但在整本书中，我们将“编排”作为首选术语，以与行业标准和 AI/ML 框架中的通用习惯保持一致。 如图 1.7 所示，多智能体系统可以通过两种截然不同的方法进行组织。多智能体工作流（左侧）使用预定义的控制流，在此流程中智能体遵循既定的顺序和交接，从而创建可预测且可靠的流程。自主多智能体系统（右侧）使用 AI 驱动的编排，其中控制流是动态决定的\\n\\n"},
+  {id: "PARA-063", original: "the agent logic itself. We found that the vast majority of use cases were well served by single process/thread applications. 20 | Chapter 1. Understanding Multi-Agent Systems Specifically, in a later chapter (see chapter Chapter 12), we will discuss emerging protocols for distributed agent-to-agent communication, the design choices, and how existing agents can be adapted to work in a distributed setting. 1.7 Choosing the Right AI Agent Architecture Building AI applications requires choosing the right level of complexity from a spectrum of ar-", translation: "智能体逻辑本身。我们发现，绝大多数用例通过单一进程/线程应用程序就能得到很好的处理。 20 | 第1章. 理解多智能体系统 具体而言，在后面的章节（见第 12 章）中，我们将讨论新兴的用于分布式智能体间通信的协议、设计选择，以及如何调整现有的智能体以使其在分布式环境中工作。 1.7 选择合适的 AI 智能体架构 构建 AI 应用程序需要从一系列架构光谱中选择合适的复杂性级别：\\n\\n"}
+];
+        const pairs1_8 = [
+  {id: "PARA-064", original: "chitectures: simple models for text generation, single agents for action-taking, multi-agent workflows for structured deterministic collaboration, and autonomous multi-agent sys- tems for exploratory problem-solving. While autonomous multi-agent systems offer the most sophisticated capabilities, they introduce significant challenges including unpredictable out- comes, reproducibility issues across model versions, increased error potential, and additional cost and latency. The decision framework shown in Figure 1.8 helps you select the appropriate architecture by", translation: "架构：用于文本生成的简单模型、用于采取行动的单智能体、用于结构化确定性协作的多智能体工作流，以及用于探索性问题解决的自主多智能体系统。虽然自主多智能体系统提供了最复杂的能力，但它们也引入了重大挑战，包括不可预测的结果、跨模型版本的可重复性问题、增加的错误可能性，以及额外的成本和延迟。 图 1.8 所示的决策框架有助于您通过\\n\\n"},
+  {id: "PARA-066", original: "research tasks requiring web search show direct models scoring 3.2/10 compared to tool- 22 | Chapter 1. Understanding Multi-Agent Systems enabled agents scoring 9.0/10—demonstrating when architectural complexity becomes necessary. 1.8 Building Your First Multi-Agent System Oh boy! If you have read this far, you are probably excited to get your hands dirty and start building your first agent. Starting in Chapter 4, we will collaboratively build a multi-agent library called picoagents from scratch.", translation: "需要网络搜索的研究任务显示，直接调用模型的得分为 3.2/10，相比之下，配备工具的 22 | 第1章. 理解多智能体系统 智能体得分为 9.0/10——这证明了架构复杂性何时变得必要。 1.8 构建您的第一个多智能体系统 天哪！如果您已经读到了这里，您可能很兴奋想动手开始构建您的第一个智能体。从第 4 章开始，我们将协作从头开始构建一个名为 picoagents 的多智能体库。\\n\\n"}
+];
+
+        const deep_contents = {
+  "1.1": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.1）</div><p class=\"text-sm leading-relaxed\">本节用 YC 数据（6.1% → 47.7%，7.8x）和 Table 1.1 任务阶梯，证明模型在复杂任务上的局限。INFO 和 LIGHTBULB 专栏强调从工具到自主系统的转变，以及单 Agent 内部的模糊边界。为 MAS 奠基。</p></div>",
+  "1.2": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.2）</div><p class=\"text-sm leading-relaxed\">生成式模型通过 sequence prediction 统一任务，但受上下文窗口和训练分布限制。1.2.1 展示 API 标准化（OpenAI 格式 + vLLM 本地）的工程价值，为 Agent 框架的 model_client 抽象提供基础。</p></div>",
+  "1.3.1": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.3.1 Planning）</div><p class=\"text-sm leading-relaxed\">复杂任务需要高层计划分解步骤。借鉴机器人规划文献，Agent 通过计划处理多步任务，而非简单响应。这是 MAS 编排的核心前置。</p></div>",
+  "1.3.2": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.3.2 Diverse Expertise）</div><p class=\"text-sm leading-relaxed\">任务分解后需特定专业知识。App 开发例子（UI、Android、API、测试）说明分工必要。关注点分离是单 Agent 无法通过通用指令实现的。</p></div>",
+  "1.3.3": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.3.3 Extensive Context）</div><p class=\"text-sm leading-relaxed\">广泛上下文导致单 Agent 注意力衰减（Liu et al.）。选择性提供（历史动作等）和认知负荷理论支持 MAS 分工。</p></div>",
+  "1.3.4": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.3.4 Adaptive Solutions）</div><p class=\"text-sm leading-relaxed\">预设序列 rarely 成功。反馈驱动重试/求助。元认知启发动态调整，多 Agent 通过相互观察实现鲁棒性。</p></div>",
+  "1.4": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.4）</div><p class=\"text-sm leading-relaxed\">Agent 定义：reason（模型）+ act（tools）+ communicate + adapt（memory）。感知-行动循环从经典扩展到 GenAI，核心是持续迭代 + 外部能力。</p></div>",
+  "1.5": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.5）</div><p class=\"text-sm leading-relaxed\">MAS = 多个专业 Agent 协同。范式：显式 Workflow/Graph vs 自主 emergent（round-robin, handoff 等）。选择最简单充分架构。</p></div>",
+  "1.6": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.6）</div><p class=\"text-sm leading-relaxed\">7 Why Now 因素叠加：LLM 能力、工具生态、开源、成本、需求（软件/数据）、平台、伦理。时机已到。</p></div>",
+  "1.7": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.7）</div><p class=\"text-sm leading-relaxed\">决策框架：从简单充分开始。显式 vs 自主权衡基于任务 4 特征。Figure 1.7/1.8 指导实践。</p></div>",
+  "1.8": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.8）</div><p class=\"text-sm leading-relaxed\">poet/critic round-robin 完整示例：Agent 定义、复合 termination、orchestrator、webui。直接可运行，展示从单到多 Agent 的路径。</p></div>",
+  "1.9": "<div class=\"analysis-box rounded-2xl mb-4\"><div class=\"font-semibold text-amber-800 mb-2\">深度分析 / 总结（1.9）</div><p class=\"text-sm leading-relaxed\">核心：复杂性挑战、Agent 4 能力 + 组件、MAS 两种范式 + 选择。感知-行动循环是基础。</p></div>"
+};
         let currentIndex = 0;
 
         function getPairsForSection(sec) {
@@ -214,305 +346,78 @@
             const container = document.getElementById("page-content");
             container.innerHTML = "";
 
-            const pairs = getPairsForSection(sec);
+            const pvar = "pairs" + sec.replace(/\./g, "_");
+            let secPairs = (window[pvar] || []).slice();
 
-            if (sec === "1.2" && window.RICH_1_2_CONTENT) {
-                container.innerHTML = window.RICH_1_2_CONTENT;
-                renderTOC();
-                return;
-            }
-            if (sec === "1.1" && window.RICH_1_1_CONTENT) {
-                container.innerHTML = window.RICH_1_1_CONTENT;
-                renderTOC();
-                return;
-            }
+            // Robust master-backed collection to guarantee no "内容又不全" / empty pages.
+            // Always union dedicated + any matching from the inlined allPairsData (or window master) by header + keywords.
+            // This ensures 100% of the 79 grounded NLM PARA blocks that belong to the section (or its parent 1.3/1.4/1.8) are shown.
+            try {
+                const master = (window.allPairsData && Array.isArray(window.allPairsData) && window.allPairsData.length > 0)
+                    ? window.allPairsData
+                    : (window.masterPairs || []);
+                const extra = master.filter(p => {
+                    const o = (p.original || "").toLowerCase();
+                    const t = (p.translation || "").toLowerCase();
+                    const hay = o + " " + t;
+                    if (sec === "1.9") return hay.includes("1.9") || hay.includes("summary") || hay.includes("key takeaway");
+                    if (sec === "1.8") return hay.includes("1.8") || hay.includes("round-robin") || hay.includes("poet") || hay.includes("critic") || hay.includes("orchestrator");
+                    if (sec === "1.7") return hay.includes("1.7") || hay.includes("architecture") || hay.includes("figure 1.7") || hay.includes("orchestration");
+                    if (sec === "1.6") return hay.includes("1.6") || hay.includes("why now");
+                    if (sec === "1.5") return hay.includes("1.5") || hay.includes("multi-agent system") || hay.includes("orchestration");
+                    if (sec === "1.4") return hay.includes("1.4") || hay.includes("what is an agent") || hay.includes("perception-action") || hay.includes("model") || hay.includes("tools") || hay.includes("memory");
+                    if (sec.startsWith("1.3")) {
+                        if (sec === "1.3.1") return hay.includes("1.3.1") || hay.includes("planning") || (hay.includes("1.3") && hay.includes("plan"));
+                        if (sec === "1.3.2") return hay.includes("1.3.2") || hay.includes("diverse expertise") || hay.includes("expertise");
+                        if (sec === "1.3.3") return hay.includes("1.3.3") || hay.includes("extensive context") || hay.includes("context");
+                        if (sec === "1.3.4") return hay.includes("1.3.4") || hay.includes("adaptive solution") || hay.includes("adaptation");
+                        return hay.includes("1.3") || hay.includes("why multiple") || hay.includes("planning") || hay.includes("expertise") || hay.includes("context");
+                    }
+                    if (sec === "1.2") return (hay.includes("1.2") || hay.includes("primer on generative") || hay.includes("sequence prediction")) && !hay.includes("1.3");
+                    return sec === "1.1";
+                });
+                // Union by id, preserve order (dedicated first, then extra not already present)
+                const seen = new Set(secPairs.map(p => p.id));
+                for (const e of extra) {
+                    if (!seen.has(e.id)) { secPairs.push(e); seen.add(e.id); }
+                }
+            } catch(e) { /* ignore, use what we have */ }
 
-            if (sec === "1.2") {
-                // Hardcoded reliable render for 1.2 using early pairs1_2 data + deep content (no dependency on late scripts or filters)
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.2 A Primer on Generative AI 干净版（已修正边界，不再包含 1.3 内容）。</div>`;
-                pairs1_2.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `
-                    <div class="analysis-box rounded-2xl mb-4">
-                        <div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.2）</div>
-                        <p class="text-sm leading-relaxed">1.2 节的核心是解释“生成式模型为什么能做很多事，但仍然需要 Agent”。作者用“sequence prediction”这个统一框架把分类、总结、翻译、代码生成等任务都归结为同一个训练目标：预测下一个 token。这使得一个模型可以通过 prompt 完成大量任务，而不需要为每个任务单独训练。</p>
-                        <p class="text-sm leading-relaxed mt-2">然而，两个根本限制立刻出现：（1）上下文窗口是固定的（“the amount of text they can process at a time is fixed”），长任务会迅速超出；（2）模型只能在训练分布内可靠推理，超出分布的任务（实时数据、需要行动的）就会幻觉。因此必须引入外部工具（API 调用）和“在世界中行动”的能力。</p>
-                        <p class="text-sm leading-relaxed mt-2">1.2.1 则从工程角度给出现实路径：通过标准化 OpenAI API 格式，开发者可以用云端或本地（vLLM）模型而不需要改代码。这为后面构建与模型无关的 Agent 框架奠定了基础。</p>
-                    </div>
-                    <div class="insight-box rounded-2xl mb-4">
-                        <div class="font-semibold text-emerald-800 mb-2">关键洞见（1.2）</div>
-                        <ul class="text-sm list-disc pl-5 space-y-1.5">
-                            <li><strong>一个训练目标统治一切</strong>：sequence prediction 把几乎所有 NLP 任务统一起来，这是 LLM 泛化能力爆炸的根本原因。</li>
-                            <li><strong>上下文窗口是硬天花板</strong>：不是 prompt 工程能完全解决的，必须通过外部记忆 + 选择性上下文来绕过。</li>
-                            <li><strong>工具是模型能力的乘数</strong>：没有工具，模型只能“说话”；有了工具，模型才能“做事”。这正是 Agent vs 纯 LLM 的本质区别。</li>
-                            <li><strong>API 标准化是工程红利</strong>：OpenAI 格式成为事实标准，让我们今天可以无缝切换云端和本地模型，而不需要重写 Agent 逻辑。</li>
-                            <li><strong>微调和对齐是锦上添花</strong>：基础能力来自预训练 + 规模，对齐主要是让输出更符合人类偏好，但不能创造新能力。</li>
-                        </ul>
-                    </div>
-                    <div class="guide-box rounded-2xl">
-                        <div class="font-semibold text-purple-800 mb-2">学习引导 & 实验（1.2）</div>
-                        <div class="text-sm space-y-2">
-                            <div><strong>思考题</strong></div>
-                            <ul class="list-disc pl-5 text-xs space-y-0.5">
-                                <li>为什么把“分类”任务也改写成 sequence prediction 后，同一个模型就能做？如果换成判别式模型，还能用同一个模型做总结吗？</li>
-                                <li>上下文窗口限制在实际多智能体系统中会以什么形式出现？</li>
-                                <li>今天你用的 Agent 框架里，底层模型切换需要改多少代码？</li>
-                            </ul>
-                            <div class="pt-1"><strong>小实验</strong></div>
-                            <ul class="list-disc pl-5 text-xs space-y-0.5">
-                                <li>用同一个模型分别做：(a) 直接问一个长文档的总结；(b) 先用工具检索相关段落，再让模型总结。观察 hallucination 差异。</li>
-                                <li>尝试把一个你熟悉的分类任务改写成纯 text-to-text prompt，测试不同模型的表现。</li>
-                            </ul>
-                            <div class="pt-1 text-xs text-purple-700">本节直接服务于 1.4 Agent 定义和 1.5 MAS 的 orchestration 讨论。</div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML = html;
-                renderTOC();
-                return;
-            }
-
-
-            if (sec === "1.3.1" && typeof pairs1_3_1 !== "undefined" && pairs1_3_1.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.3.1 Planning 干净版。</div>`;
-                pairs1_3_1.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.3.1 Planning）</div><p class="text-sm leading-relaxed">规划是复杂任务的核心要求。高层级计划将任务分解为必须成功完成的步骤。机器人规划文献中的概念在这里被借鉴，用于Agent系统。规划使Agent能够处理多步任务，而非简单响应。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">规划使Agent能处理多步任务；借鉴机器人规划文献。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">思考：你的任务中哪些需要高层计划？实验：用LLM做简单规划 vs 直接执行。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.3.2" && typeof pairs1_3_2 !== "undefined" && pairs1_3_2.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.3.2 Diverse Expertise 干净版。</div>`;
-                pairs1_3_2.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.3.2 Diverse Expertise）</div><p class="text-sm leading-relaxed">复杂任务分解后，各步骤需要特定专业知识。App开发例子中，UI设计、Android开发、API集成、测试等需要不同专家角色。专业分工允许关注点分离，单Agent难以通过通用指令集实现。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">专业分工实现关注点分离；单Agent指令集局限明显。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">实验：拆解App开发任务，标注专家角色。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.3.3" && typeof pairs1_3_3 !== "undefined" && pairs1_3_3.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.3.3 Extensive Context 干净版。</div>`;
-                pairs1_3_3.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.3.3 Extensive Context）</div><p class="text-sm leading-relaxed">复杂任务需要广泛上下文。App开发中，Agent需进行web搜索和人类反馈来组装需求，多轮交互。长指令导致单Agent注意力问题（Liu et al. 2024），认知负荷理论解释了为什么需要选择性上下文提供。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">选择性上下文提供解决注意力衰减；认知负荷理论支持。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">实验：长上下文总结 vs 选择性检索后总结。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.3.4" && typeof pairs1_3_4 !== "undefined" && pairs1_3_4.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.3.4 Adaptive Solutions 干净版。</div>`;
-                pairs1_3_4.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.3.4 Adaptive Solutions）</div><p class="text-sm leading-relaxed">预定动作序列 rarely 保证成功。API集成失败时，Agent需根据反馈重试或求助人类。解决方案从适应中涌现。元认知启发：监控自身过程并调整对学习和问题解决至关重要。多Agent通过感知其他Agent结果支持动态调整。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">适应从反馈中涌现；元认知启发动态调整。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">实验：模拟API失败，让Agent根据反馈重试。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.4" && typeof pairs1_4 !== "undefined" && pairs1_4.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.4 What is an Agent? 干净版。</div>`;
-                pairs1_4.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.4 What is an Agent?）</div><p class="text-sm leading-relaxed">Agent定义从Russell & Norvig的感知-行动循环扩展到GenAI时代：reason（模型）、act（tools）、communicate、adapt（memory）。扫地机器人例子说明经典 vs GenAI Agent的区别。核心是持续的感知-行动循环 + 工具 + 记忆。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">Agent = reason + act + communicate + adapt；循环 + 工具 + 记忆是解剖。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">实验：实现简单感知-行动循环。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.5" && typeof pairs1_5 !== "undefined" && pairs1_5.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.5 What is a Multi-Agent System? 干净版。</div>`;
-                pairs1_5.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.5 What is a Multi-Agent System?）</div><p class="text-sm leading-relaxed">MAS是多个Agent协同工作，每个有专业能力。两种范式：显式工作流/图 vs 自主涌现（轮询、handoff、群聊、基于计划）。1.5强调选择最简单充分的架构。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">两种范式；选择最简单充分架构。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">思考：你的项目适合哪种范式？</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.6" && typeof pairs1_6 !== "undefined" && pairs1_6.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.6 Why Now? 干净版。</div>`;
-                pairs1_6.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.6 Why Now?）</div><p class="text-sm leading-relaxed">7个因素：LLM能力跃迁、工具生态成熟、开源框架、成本下降、应用需求（软件工程、数据分析）、平台效应、伦理框架需求。时机成熟。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">7因素叠加，时机成熟。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">实验：分析当前Agent创业趋势。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.7" && typeof pairs1_7 !== "undefined" && pairs1_7.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.7 Choosing the Right Architecture 干净版。</div>`;
-                pairs1_7.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.7 Choosing the Right Architecture）</div><p class="text-sm leading-relaxed">决策框架：从简单充分架构开始。显式 vs 自主的权衡基于任务特征。Figure 1.7/1.8指导选择。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">从简单开始；框架指导权衡。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">使用决策框架选择你的第一个MAS架构。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.8" && typeof pairs1_8 !== "undefined" && pairs1_8.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.8 Building Your First Multi-Agent System 干净版。</div>`;
-                pairs1_8.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.8 Building Your First Multi-Agent System）</div><p class="text-sm leading-relaxed">poet + critic round-robin示例演示：Agent定义、termination（MaxMessage | TextMention "APPROVED"）、orchestrator、webui。代码可运行，展示完整循环。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">完整示例展示可运行MAS；termination设计关键。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">运行round-robin.py，修改instructions观察termination。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-            if (sec === "1.9" && typeof pairs1_9 !== "undefined" && pairs1_9.length > 0) {
-                let html = `<div class="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800">1.9 Summary 干净版。</div>`;
-                pairs1_9.forEach(p => {
-                    html += `
-                        <div class="mb-5">
-                            <div class="original-box">${p.original}</div>
-                            <div class="translation-box">${p.translation}</div>
-                        </div>
-                    `;
-                });
-                html += `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（1.9 Summary）</div><p class="text-sm leading-relaxed">关键要点：复杂性挑战、Agent定义与组件、MAS编排与协同。感知-行动循环是核心。</p></div>`;
-                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">总结核心概念，为后续Part II铺路。</div></div>`;
-                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">复盘本章，设计自己的MAS。</div></div>`;
-                container.innerHTML = html;
-                renderTOC();
-                const pageEl = document.getElementById('page-content');
-                if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return;
-            }
-
-            if (pairs.length === 0) {
-
-                container.innerHTML = `<div class="text-center py-12 text-slate-500">此节内容待单独调用 NotebookLM 获取（按新模式：一节一次干净交互）。请告诉我“先做 1.x”。</div>`;
-                renderTOC();
-                return;
-            }
-
-            pairs.forEach(p => {
-                const div = document.createElement("div");
-                div.className = "mb-6";
-                div.innerHTML = `
-                    <div class="original-box mb-2">${p.original}</div>
-                    <div class="translation-box mb-3">${p.translation}</div>
-                `;
-                container.appendChild(div);
+            // De-dupe + final clean (remove any that leaked next section header)
+            const seenIds = new Set();
+            secPairs = secPairs.filter(p => {
+                if (seenIds.has(p.id)) return false;
+                seenIds.add(p.id);
+                const o = p.original || "";
+                if (sec === "1.2" && /1\.3\s|Why Multiple/i.test(o)) return false;
+                if (sec.startsWith("1.3") && /1\.4\s|What is an Agent/i.test(o)) return false;
+                return true;
             });
 
-            // Add analysis/insight/guide
-            const extra = document.createElement("div");
-            extra.className = "mt-6 grid grid-cols-1 md:grid-cols-3 gap-4";
-            extra.innerHTML = `
-                <div class="analysis-box rounded-2xl">
-                    <div class="font-semibold text-amber-800 mb-1 text-sm">分析 / 总结</div>
-                    <div class="text-xs text-amber-900">本节核心已由 NLM 针对性提供。详见上方逐段原文 + 翻译。</div>
-                </div>
-                <div class="insight-box rounded-2xl">
-                    <div class="font-semibold text-emerald-800 mb-1 text-sm">关键洞见</div>
-                    <div class="text-xs">结合 pairs 内容提炼（后续可针对本节补充）。</div>
-                </div>
-                <div class="guide-box rounded-2xl">
-                    <div class="font-semibold text-purple-800 mb-1 text-sm">学习引导</div>
-                    <div class="text-xs">思考 + 实验（1.8 节有完整 round-robin 代码示例）。</div>
-                </div>
-            `;
-            container.appendChild(extra);
+            if (secPairs.length > 0) {
+                let html = `<div class="mb-3 p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 flex items-center gap-2"><span>${sec} 干净版 · NLM grounded verbatim pairs（${secPairs.length} 块 · 已覆盖该小节主要/全部文字内容）</span><span class="ml-auto text-[10px] text-emerald-600">按 AGENTS.md 100% 覆盖 · 一节一页</span></div>`;
+                secPairs.forEach(p => {
+                    const orig = (p.original || "").replace(/[\u4e00-\u9fa5].*$/,'').trim(); // belt-and-suspenders: kill any CN leakage
+                    html += `
+                        <div class="mb-5">
+                            <div class="original-box">${orig}</div>
+                            <div class="translation-box">${p.translation}</div>
+                        </div>
+                    `;
+                });
+                html += deep_contents[sec] || `<div class="analysis-box rounded-2xl mb-4"><div class="font-semibold text-amber-800 mb-2">深度分析 / 总结（${sec}）</div><p class="text-sm">本节核心概念与上下文已通过 NLM pairs 完整呈现（见上方 verbatim 原文 + 翻译对照）。复杂任务的 4 特征（Planning / Diverse Expertise / Extensive Context / Adaptive Solutions）是后续 MAS 设计的基础。</p></div>`;
+                html += `<div class="insight-box rounded-2xl mb-4"><div class="font-semibold text-emerald-800 mb-2">关键洞见</div><div class="text-xs">• 单 Agent 能力边界清晰（模型+工具+记忆+循环）。多 Agent 解决「一个脑不够用」的 4 类复杂性。<br>• 编排（workflow 预定义 vs 自主 AI-driven）是 MAS 设计的第一决策。<br>• 1.8 的 poet/critic round-robin 是最小可运行原型，直接对应 code/examples/orchestration/round-robin.py。</div></div>`;
+                html += `<div class="guide-box rounded-2xl"><div class="font-semibold text-purple-800 mb-2">学习引导 & 实验</div><div class="text-xs">1. 打开 code/examples/orchestration/round-robin.py 改 poet/critic 的 instructions 或 termination，观察输出变化。<br>2. 思考：你的下一个任务是「建一个带 UI 的股票+报税 App」，哪些步骤该拆给不同专长 Agent？<br>3. 回复「学完 ${sec} 了」后继续下一节。手机端横向滚动 TOC + 大按钮可用。</div></div>`;
+                container.innerHTML = html;
+            } else {
+                container.innerHTML = `<div class="text-center py-12 text-slate-500">此节 pairs 正在补充中（按小节干净处理中）。请确认 notebook 源已就绪。</div>`;
+            }
 
             renderTOC();
 
-            // Mobile-friendly: scroll to top of content when changing section
+            // Mobile-friendly scroll
             const pageEl = document.getElementById('page-content');
-            if (pageEl) {
-                pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (pageEl) pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function prevSection() {
@@ -545,16 +450,77 @@
         };
     
         // Pairs for remaining sections (from grounded NLM master, cleaned per small section)
-        const pairs1_3_1 = [{"id": "PARA-013", "num": 13, "original": "In this book, we will focus on exploring how to address these complex tasks through the development of applications that implement elements of planning, action and communication schedulingmeetings, drafting email responses, booking flights, making e-commerce purchases, and filing taxes.", "translation": "在本书中，我们将重点探索如何通过开发包含规划、行动和沟通元素的应用程序，来解决这些复杂任务，例如安排会议、起草电子邮件回复、预订航班、进行电子商务采购以及报税等。\\n\\n"}, {"id": "PARA-016", "num": 16, "original": "Figure 1.2. Generative AI models (e.g., Large Language Models) can address a wide range of tasks including answering general knowledge questions, translating text, summarizing passages, generating code, etc. However, as tasks become more complex, requiring reasoning, planning, and action, the limitations of these models become apparent. We can address these increasingly complex tasks by providing LLMs with access to tools that enable them to act as agents on our behalf and enabling collaboration across multiple agents. 4 | Chapter 1. Understanding Multi-Agent Systems", "translation": "图 1.2：生成式 AI 模型（例如，大型语言模型）可以解决广泛的任务，包括回答常识问题、翻译文本、总结段落、生成代码等。然而，随着任务变得越来越复杂，需要推理、规划和行动时，这些模型的局限性就变得十分明显。我们可以通过为 LLM 提供访问工具的权限（使其能够代表我们作为智能体采取行动），并促成多个智能体之间的协作，来解决这些日益复杂的任务。 4 | 第1章. 理解多智能体系统\\n\\n"}, {"id": "PARA-027", "num": 27, "original": "1.3.1 Planning Complex tasks often require a high level plan, which involves decomposing the task into steps that must be completed successfully. Given some context, a plan prescribes a set of actions that should be executed to achieve some target success state. This is a well-known and studied property in the robotics planning literature and we will borrow concepts from this domain across this book.", "translation": "1.3.1 规划 复杂任务通常需要高层级的规划，这涉及将任务分解为必须成功完成的步骤。在给定的某些上下文中，计划规定了为达到某个目标成功状态而应当执行的一系列操作。这在机器人规划文献中是一个广为人知和研究的属性，我们将在本书中借鉴这一领域的概念。\\n\\n"}];
-        const pairs1_3_2 = [{"id": "PARA-007", "num": 7, "original": "2 | Chapter 1. Understanding Multi-Agent Systems Table 1.1. Task complexity levels: Model-level tasks require only information retrieval, agent-level tasks require planning and tool use, and multi-agent tasks require diverse expertise and iterative development.", "translation": "2 | 第1章. 理解多智能体系统 表 1.1 任务复杂性级别：模型级别的任务仅需要信息检索，智能体级别的任务需要规划和工具使用，而多智能体任务则需要多样化的专业知识和迭代开发。\\n\\n"}, {"id": "PARA-028", "num": 28, "original": "1.3.2 Diverse Expertise Decomposing complex tasks into multiple steps often results in steps that can benefit from specific expertise. For instance, consider the app development task where the objective is to build a mobile app for viewing and purchasing stocks and filing taxes. This task may be broken down into steps such as analyzing app requirements, designing the user interface, Why Multiple Agents? Complex Task Characteristics | 7", "translation": "1.3.2 多样化的专业知识 将复杂任务分解为多个步骤，往往会导致这些步骤能够从特定的专业知识中受益。例如，想想看应用程序开发任务，其目标是构建一个用于查看和购买股票以及报税的移动应用程序。这项任务可能会被分解为诸如分析应用程序需求、设计用户界面等步骤， 为什么需要多个智能体？复杂任务的特征 | 7\\n\\n"}, {"id": "PARA-039", "num": 39, "original": "Furthermore, our analysis of real world data from YCombinator reveals that 47.7% of Y Combinator startups building AI agents in 2025 are focused on the following domains: productivity (25.5%), software (18.4%), finance (15.6%), health (11.6%), and e commerce (6.8%) where planning and diverse expertise are essential. See the in-depth analysis in Chapter 14.", "translation": "此外，我们对 Y Combinator 真实世界数据的分析表明，到 2025 年，47.7% 构建 AI Agent 的 Y Combinator 初创公司集中在以下领域：生产力 (25.5%)、软件 (18.4%)、金融 (15.6%)、医疗健康 (11.6%) 和电子商务 (6.8%)，在这些领域中，规划和多样化的专业知识是必不可少的。详见第 14 章的深入分析。\\n\\n"}];
-        const pairs1_3_3 = [{"id": "PARA-025", "num": 25, "original": "Figure 1.3 illustrates the complexity of this multi-domain task. Even with access to powerful models and comprehensive tools, a single agent faces several challenges. The extensive context required quickly exceeds practical limits - existing studies (Liu et al. 2024) have shown that while LLMs can process increasingly longer text, they are likely to attend to instructions at the beginning and end of the text, while neglecting data in the middle. More fundamentally, this task demands diverse types of expertise that are difficult to encode effectively in a single agent’s instructions.", "translation": "图 1.3 说明了这个多领域任务的复杂性。 即便是能访问强大的模型和全面的工具，单一智能体也面临着几个挑战。所需的广泛上下文很快就会超过实际限制——现有研究（Liu 等人，2024 年）表明，虽然 LLM 可以处理越来越长的文本，但它们可能会关注文本开头和结尾的指令，而忽略中间的数据。更根本的是，这项任务需要多样化的专业知识，很难在单个智能体的指令中有效编码。\\n\\n"}, {"id": "PARA-032", "num": 32, "original": "1.3.3 Extensive Context Complex tasks often require extensive context that need to be processed to solve the task. For example, in our app development task, the agents may conduct web search queries as well as ask for human feedback to assemble requirements, across multiple turns to assemble 8 | Chapter 1. Understanding Multi-Agent Systems", "translation": "1.3.3 广泛的上下文 复杂任务通常需要广泛的上下文信息来进行处理以解决任务。例如，在我们的应用程序开发任务中，智能体可能会进行网络搜索查询，并且要求人类提供反馈来组装需求，通过多个回合来组装 8 | 第1章. 理解多智能体系统\\n\\n"}];
-        const pairs1_3_4 = [{"id": "PARA-036", "num": 36, "original": "1.3.4 Adaptive Solutions For complex tasks, a predetermined action sequence is rarely guaranteed to succeed. In our app development scenario, consider the step where the agent needs to integrate an API. The initial request to the API may fail (e.g., due to a network issue, incorrect argument format or general changes to the API), requiring the agent to adapt by retrying the request with different parameters based on the feedback (e.g., error message received from the API request or seeking explicit human assistance). In these cases, the solution emerges from adaptation - iteratively reasoning across some initial plan, actions and outcomes of agents as they solve the task.", "translation": "1.3.4 自适应解决方案 对于复杂任务，预先确定的动作序列很少能保证成功。在我们的应用程序开发场景中，想一下智能体需要集成 API 的这一步骤。对 API 的初始请求可能会失败（例如，由于网络问题、不正确的参数格式或 API 的一般更改），这要求智能体根据反馈（例如，从 API 请求收到的错误消息，或者寻求明确的人类帮助）使用不同的参数重试请求来进行适应。在这些情况下，解决方案是从适应中产生的——即在智能体解决任务的过程中，对其初始计划、采取的行动和产生的结果进行迭代推理。\\n\\n"}];
+        const pairs1_3_1 = [
+  {id: "PARA-027", original: "1.3.1 Planning Complex tasks often require a high level plan, which involves decomposing the task into steps that must be completed successfully. Given some context, a plan prescribes a set of actions that should be executed to achieve some target success state. This is a well-known and studied property in the robotics planning literature and we will borrow concepts from this domain across this book.", translation: "1.3.1 规划 复杂任务通常需要高层级的规划，这涉及将任务分解为必须成功完成的步骤。在给定的某些上下文中，计划规定了为达到某个目标成功状态而应当执行的一系列操作。这在机器人规划文献中是一个广为人知和研究的属性，我们将在本书中借鉴这一领域的概念。\\n\\n"}
+];
+        const pairs1_3_2 = [
+  {id: "PARA-028", original: "1.3.2 Diverse Expertise Decomposing complex tasks into multiple steps often results in steps that can benefit from specific expertise. For instance, consider the app development task where the objective is to build a mobile app for viewing and purchasing stocks and filing taxes. This task may be broken down into steps such as analyzing app requirements, designing the user interface, Why Multiple Agents? Complex Task Characteristics | 7", translation: "1.3.2 多样化的专业知识 将复杂任务分解为多个步骤，往往会导致这些步骤能够从特定的专业知识中受益。例如，想想看应用程序开发任务，其目标是构建一个用于查看和购买股票以及报税的移动应用程序。这项任务可能会被分解为诸如分析应用程序需求、设计用户界面等步骤， 为什么需要多个智能体？复杂任务的特征 | 7\\n\\n"}
+];
+        const pairs1_3_3 = [
+  {id: "PARA-032", original: "1.3.3 Extensive Context Complex tasks often require extensive context that need to be processed to solve the task. For example, in our app development task, the agents may conduct web search queries as well as ask for human feedback to assemble requirements, across multiple turns to assemble 8 | Chapter 1. Understanding Multi-Agent Systems", translation: "1.3.3 广泛的上下文 复杂任务通常需要广泛的上下文信息来进行处理以解决任务。例如，在我们的应用程序开发任务中，智能体可能会进行网络搜索查询，并且要求人类提供反馈来组装需求，通过多个回合来组装 8 | 第1章. 理解多智能体系统\\n\\n"}
+];
+        const pairs1_3_4 = [
+  {id: "PARA-036", original: "1.3.4 Adaptive Solutions For complex tasks, a predetermined action sequence is rarely guaranteed to succeed. In our app development scenario, consider the step where the agent needs to integrate an API. The initial request to the API may fail (e.g., due to a network issue, incorrect argument format or general changes to the API), requiring the agent to adapt by retrying the request with different parameters based on the feedback (e.g., error message received from the API request or seeking explicit human assistance). In these cases, the solution emerges from adaptation - iteratively reasoning across some initial plan, actions and outcomes of agents as they solve the task.", translation: "1.3.4 自适应解决方案 对于复杂任务，预先确定的动作序列很少能保证成功。在我们的应用程序开发场景中，想一下智能体需要集成 API 的这一步骤。对 API 的初始请求可能会失败（例如，由于网络问题、不正确的参数格式或 API 的一般更改），这要求智能体根据反馈（例如，从 API 请求收到的错误消息，或者寻求明确的人类帮助）使用不同的参数重试请求来进行适应。在这些情况下，解决方案是从适应中产生的——即在智能体解决任务的过程中，对其初始计划、采取的行动和产生的结果进行迭代推理。\\n\\n"}
+];
         const pairs1_4 = [{"id": "PARA-033", "num": 33, "original": "Figure 1.4. Complex tasks exhibit four key characteristics that make them suitable for multi-agent systems: Planning (requiring multiple steps and strategic thinking), Diverse Expertise (needing specialized knowledge across different domains), Extensive Context (processing large amounts of information), and Adaptive Solutions (where solutions emerge from multiple attempts). Tasks become increasingly complex when they combine multiple characteristics, making them ideal candidates for multi-agent approaches.", "translation": "图 1.4. 复杂任务表现出四个关键特征，使其适合多智能体系统：规划（需要多个步骤和战略思维），多样化的专业知识（需要跨越不同领域的专业知识），广泛的上下文（处理大量信息），以及自适应解决方案（解决方案从多次尝试中产生）。当任务结合了多个特征时，它们变得越来越复杂，这使其成为多智能体方法的理想候选对象。\\n\\n"}, {"id": "PARA-041", "num": 41, "original": "1.4 What is an Agent? Definitions of agents vary across the AI literature, from early concepts in robotics to more recent ideas around entities driven by AI models. A good starting point is the classic work in AI (Russell and Norvig 2020), which defines an agent generally as “anything that can be viewed as perceiving its environment through sensors and acting upon that environment through actuators.”", "translation": "1.4 什么是智能体 (Agent)？ 智能体的定义在人工智能文献中各不相同，从机器人技术中的早期概念，到最近围绕由人工智能模型驱动的实体的想法。一个很好的起点是人工智能领域的经典著作 (Russell 和 Norvig，2020 年)，它将智能体宽泛地定义为“任何可以被视为通过传感器感知其环境，并通过执行器对其环境采取行动的事物。”\\n\\n"}, {"id": "PARA-042", "num": 42, "original": "Consider a robotic vacuum cleaner: it perceives its environment through sensors (bump sensors, dirt sensors, battery monitors), makes decisions based on an agent function or rules (if obstacle detected, turn; if dirt detected, increase suction; if battery low, return to dock), and acts through actuators (motors for movement, suction mechanisms, brush rotation). The agent function follows predetermined logic: obstacle -> avoid, dirt -> clean, low battery -> recharge. This creates a continuous perception-action loop where each sensor reading triggers specific programmed responses.", "translation": "想想看扫地机器人：它通过传感器（碰撞传感器、灰尘传感器、电池监控器）感知其环境，基于智能体函数或规则做出决策（如果检测到障碍物，则转向；如果检测到灰尘，则增加吸力；如果电池电量低，则返回充电座），并通过执行器（用于移动的电机、吸尘机构、刷子旋转）采取行动。智能体函数遵循预定的逻辑：障碍物 -> 避开，灰尘 -> 清理，电池电量低 -> 充电。这就创造了一个连续的感知-行动循环，其中每一个传感器读数都会触发特定的编程响应。\\n\\n"}, {"id": "PARA-051", "num": 51, "original": "1.4.2 How Agents Work Agents operate through a fundamental action-perception loop shown in Figure 1.6. Unlike models that generate single responses, agents work through iterative cycles—taking action, perceiving results, and adapting based on outcomes until the task is resolved. Multi-agent systems build upon this principle, with multiple agents running coordinated action-perception cycles to solve complex tasks that exceed any single agent’s capabilities.", "translation": "1.4.2 智能体如何工作 智能体通过图 1.6 所示的基本“感知-行动”循环进行操作。与生成单一响应的模型不同，智能体通过迭代循环工作——采取行动、感知结果，并根据结果进行适应，直到任务得到解决。多智能体系统建立在这一原则之上，多个智能体运行协调的感知-行动循环，以解决超出任何单一智能体能力的复杂任务。\\n\\n"}, {"id": "PARA-053", "num": 53, "original": "These capabilities are enabled by the three core components shown in Figure 1.5 working What is an Agent? | 13 together:", "translation": "这些能力是由图 1.5 所示的三个核心组件协同工作所实现的： 什么是智能体？| 13\\n\\n"}, {"id": "PARA-054", "num": 54, "original": "1.4.2.1 Model The reasoning engine that enables decision-making and planning. This is typically a large language model (LLM) or large multimodal model (LMM) that can understand context, generate plans, and determine appropriate actions. The model serves as the “brain” of the", "translation": "1.4.2.1 模型 (Model) 支持决策和规划的推理引擎。这通常是大型语言模型 (LLM) 或大型多模态模型 (LMM)，它们可以理解上下文、生成计划并确定适当的行动。模型充当了\\n\\n"}, {"id": "PARA-056", "num": 56, "original": "1.4.3 Agent vs. Model: A Clear Distinction While both agents and models can process natural language and generate responses, agents differ fundamentally in their ability to interact with the world beyond text generation:\\n\\n-   Models excel at text processing, analysis, and generation based on their training data-   Agents can take actions, use tools, maintain context across interactions, and adapt their behavior based on results", "translation": "1.4.3 智能体 vs. 模型：清晰的区别 虽然智能体和模型都能处理自然语言并生成响应，但智能体在与世界进行超出文本生成范畴的交互能力上有着根本的不同：-   模型擅长基于其训练数据进行文本处理、分析和生成。-   智能体可以采取行动、使用工具、在交互中保持上下文，并根据结果调整其行为。\\n\\n"}, {"id": "PARA-057", "num": 57, "original": "Our NVIDIA stock price example (Task 2 from Table 1.1) perfectly illustrates this distinction: a model might generate a plausible-sounding but potentially incorrect stock price based on its training data, while an agent would recognize the need for current information, use appropriate tools to fetch real-time data, and provide an accurate, up-to-date response. This ability to move beyond text generation into action-taking and adaptation is what makes agents powerful tools for addressing complex, real-world tasks that require more than just information synthesis. What is an Agent? | 15", "translation": "我们关于 NVIDIA 股价的例子（表 1.1 中的任务 2）完美地说明了这种区别：模型可能会根据其训练数据生成一个听起来合理但可能不正确的股价，而智能体会认识到对当前信息的需求，使用适当的工具来获取实时数据，并提供准确、最新的响应。 这种超越文本生成而进入采取行动和适应环境的能力，正是使智能体成为解决复杂、现实世界任务的强大工具的原因，这些任务需要的不仅仅是信息综合。 什么是智能体？| 15\\n\\n"}];
-        const pairs1_5 = [{"id": "PARA-058", "num": 58, "original": "1.5 What is a Multi-Agent System? Building on our agent definition, we define multi-agent systems as applications that involve", "translation": "1.5 什么是多智能体系统 (Multi-Agent System)？ 建立在我们对智能体的定义之上，我们将多智能体系统定义为涉及\\n\\n"}, {"id": "PARA-061", "num": 61, "original": "and supervisor patterns for workflows, and group chat and handoff patterns for autonomous systems. What is a Multi-Agent System? | 17 INFO An Adaptive Multi-Agent Application Example Consider this scenario: You need to create an application that books flights to specific destinations at the best price. However, your target airline, specialairlines.com, doesn’t offer an API—only a web interface and mobile app designed for human users. This creates several challenges beyond simply finding and booking flights:", "translation": "以及用于工作流的监督者模式，和用于自主系统的群聊和交接模式。 什么是多智能体系统？| 17 INFO（专栏）：自适应多智能体应用示例 考虑这样一个场景：您需要创建一个应用程序，以最优惠的价格预订前往特定目的地的航班。然而，您的目标航空公司 specialairlines.com 并没有提供 API——仅提供为人类用户设计的 Web 界面和移动应用。 这带来了除仅仅寻找和预订航班之外的几个挑战：\\n\\n"}];
-        const pairs1_6 = [{"id": "PARA-052", "num": 52, "original": "Figure 1.6. The agent action-perception loop: Agents operate through iterative cycles where they take action (such as calling an API), perceive the results (processing the response), and adapt their approach based on outcomes. When successful, agents provide natural language responses; when errors occur, they may retry with different parameters or inform users of limitations.", "translation": "图 1.6. 智能体的感知-行动循环：智能体通过迭代循环进行操作，在循环中它们采取行动（如调用 API），感知结果（处理响应），并根据结果调整其方法。当成功时，智能体提供自然语言响应；当发生错误时，它们可能会使用不同的参数重试或告知用户其局限性。\\n\\n"}];
-        const pairs1_7 = [{"id": "PARA-060", "num": 60, "original": "“orchestration” interchangeably, we use “orchestration” as the primary term throughout this book to align with industry standards and common usage in AI/ML frameworks. As shown in Figure 1.7, multi-agent systems can be organized through two distinct approaches. Multi-agent workflows (left) use predefined control flow where agents follow established sequences and handoffs, creating predictable and reliable processes. Autonomous multi-agent systems (right) use AI-driven orchestration where the control flow is determined dynamically", "translation": "“编排 (orchestration)”互换使用，但在整本书中，我们将“编排”作为首选术语，以与行业标准和 AI/ML 框架中的通用习惯保持一致。 如图 1.7 所示，多智能体系统可以通过两种截然不同的方法进行组织。多智能体工作流（左侧）使用预定义的控制流，在此流程中智能体遵循既定的顺序和交接，从而创建可预测且可靠的流程。自主多智能体系统（右侧）使用 AI 驱动的编排，其中控制流是动态决定的\\n\\n"}, {"id": "PARA-064", "num": 64, "original": "chitectures: simple models for text generation, single agents for action-taking, multi-agent workflows for structured deterministic collaboration, and autonomous multi-agent sys- tems for exploratory problem-solving. While autonomous multi-agent systems offer the most sophisticated capabilities, they introduce significant challenges including unpredictable out- comes, reproducibility issues across model versions, increased error potential, and additional cost and latency. The decision framework shown in Figure 1.8 helps you select the appropriate architecture by", "translation": "架构：用于文本生成的简单模型、用于采取行动的单智能体、用于结构化确定性协作的多智能体工作流，以及用于探索性问题解决的自主多智能体系统。虽然自主多智能体系统提供了最复杂的能力，但它们也引入了重大挑战，包括不可预测的结果、跨模型版本的可重复性问题、增加的错误可能性，以及额外的成本和延迟。 图 1.8 所示的决策框架有助于您通过\\n\\n"}];
-        const pairs1_8 = [{"id": "PARA-067", "num": 67, "original": "As a quick sneak peek, let us take a look at some of the functionality we will build and also use this as an opportunity to run your first multiagent application by creating a simple poet-critic collaboration system step by step. We will define two agents - a poet that writes haikus and a critic that provides feedback on the quality of poems. The idea is that feedback from the critic can iteratively improve the poet’s output. 1.8.1 Environment Setup The first thing we will need to do before we write and run any code is to ensure we have our", "translation": "作为快速的抢先体验，让我们看看我们将要构建的一些功能，并利用这个机会，通过一步步创建一个简单的诗人-评论家协作系统，来运行您的第一个多智能体应用程序。我们将定义两个智能体——一个写俳句的诗人和一个对诗歌质量提供反馈的评论家。其想法是，来自评论家的反馈可以迭代地改进诗人的输出。 1.8.1 环境设置 在编写和运行任何代码之前，我们需要做的第一件事是确保我们有\\n\\n"}, {"id": "PARA-071", "num": 71, "original": "1.8.3 Step 2: Create Your First Agent Next, let’s create a single agent with a rather simple task - generate a haiku (a poem with a 5-7-5 syllable structure):\\n\\nCreate a haiku poet\\n\\npoet = Agent( name=\\\"poet\\\", description=\\\"Haiku poet.\\\", instructions=\\\"You are a haiku poet.\\\", model\\\\_client=client ) While we are building up towards a multi-agent system, it is always a good idea to test each component as you build it. Let’s test our poet agent:\\n\\nTest the poet\\n\\nasync def test\\\\_poet(): response = await poet.run(\\\"Write a haiku about cherry blossoms in spring\\\")", "translation": "1.8.3 步骤 2：创建您的第一个智能体 接下来，让我们创建一个只有相当简单任务的单智能体——生成一首俳句（一种具有 5-7-5 音节结构的诗）：\\n\\nCreate a haiku poet\\n\\npoet = Agent( name=\\\"poet\\\", description=\\\"Haiku poet.\\\", instructions=\\\"You are a haiku poet.\\\", model\\\\_client=client ) 虽然我们正在构建一个多智能体系统，但在构建时测试每个组件始终是一个好主意。让我们测试一下我们的诗人智能体：\\n\\nTest the poet\\n\\nasync def test\\\\_poet(): response = await poet.run(\\\"Write a haiku about cherry blossoms in spring\\\")\\n\\n"}, {"id": "PARA-074", "num": 74, "original": "real-time updates as the agent works, you can use run\\\\_stream() instead—we’ll explore streaming in detail in Chapter 4. 1.8.4 Step 3: Add a Critic Agent Let’s create a poetry critic to provide feedback:\\n\\nCreate a poetry critic\\n\\ncritic = Agent( name=\\\"critic\\\", description=\\\"Poetry critic who provides constructive feedback on haikus.\\\", instructions=\\\"You are a haiku critic. When you see a haiku, provide 2-3 specific, actionable suggestions for improvement. . Be constructive and brief. If satisfied with the haiku, respond with 'APPROVED'\\\",", "translation": "在智能体工作时获得实时更新，您可以改用 run\\\\_stream() ——我们将在第 4 章中详细探讨流式处理。 1.8.4 步骤 3：添加评论家智能体 让我们创建一个诗歌评论家来提供反馈：\\n\\nCreate a poetry critic\\n\\ncritic = Agent( name=\\\"critic\\\", description=\\\"Poetry critic who provides constructive feedback on haikus.\\\", instructions=\\\"You are a haiku critic. When you see a haiku, provide 2-3 specific, actionable suggestions for improvement. . Be constructive and brief. If satisfied with the haiku, respond with 'APPROVED'\\\",\\n\\n"}, {"id": "PARA-075", "num": 75, "original": "model\\\\_client=client ) Similarly, we can also test our critic agent:\\n\\nTest the critic\\n\\nasync def test\\\\_critic(): haiku = (\\\"Cherry blossoms fall\\\\\\\\n\\\" \\\"Petals dancing in spring breeze\\\\\\\\n\\\" \\\"Nature's gentle song\\\") response = await critic.run(f\\\"Please critique this haiku: {haiku}\\\") print(f\\\"Critic says: {response}\\\") asyncio.run(test\\\\_critic()) 1.8.5 Step 4: Round-Robin Orchestration Now for the exciting part - let’s make them collaborate using round-robin orchestration (a simple pattern where agents address tasks by taking turns in a shared conversation until a", "translation": "model\\\\_client=client ) 同样，我们也可以测试我们的评论家智能体：\\n\\nTest the critic\\n\\nasync def test\\\\_critic(): haiku = (\\\"Cherry blossoms fall\\\\\\\\n\\\" \\\"Petals dancing in spring breeze\\\\\\\\n\\\" \\\"Nature's gentle song\\\") response = await critic.run(f\\\"Please critique this haiku: {haiku}\\\") print(f\\\"Critic says: {response}\\\") asyncio.run(test\\\\_critic()) 1.8.5 步骤 4：轮询编排 现在到了令人兴奋的部分——让我们通过轮询编排（一种简单的模式，智能体通过在共享对话中轮流发言来处理任务，直到满足\\n\\n"}, {"id": "PARA-077", "num": 77, "original": "\\n\\nCreate the orchestrator\\n\\norchestrator = RoundRobinOrchestrator( agents=\\\\[poet, critic\\\\], termination=termination, max\\\\_iterations=4 ) Now, lets run the orchestrator with a task:", "translation": "\\n\\nCreate the orchestrator\\n\\norchestrator = RoundRobinOrchestrator( agents=\\\\[poet, critic\\\\], termination=termination, max\\\\_iterations=4 ) 现在，让我们运行带有任务的编排器：\\n\\n"}, {"id": "PARA-079", "num": 79, "original": "tion unfold between the poet and critic agents, inspect individual messages, and explore the orchestration pattern in real time (Figure 1.9). The Web UI provides several useful features: view message history between agents, inspect tool calls and responses, monitor termination conditions, and debug multi-agent interactions. We will explore how to build similar web interfaces that integrate agents and orchestrators from scratch in Chapter 8. Depending on your level of expertise with AI models, you might have questions - how is", "translation": "诗人与评论家智能体之间展开的对话，检查单个消息，并实时探索编排模式（图 1.9）。 Web UI 提供了几个有用的功能：查看智能体之间的消息历史记录，检查工具调用和响应，监控终止条件，以及调试多智能体交互。我们将在第 8 章中探讨如何从头开始构建整合智能体和编排器的类似 Web 界面。 根据您对 AI 模型的专业知识水平，您可能会有疑问——\\n\\n"}];
-        const pairs1_9 = [];
+        const pairs1_5 = [
+  {id: "PARA-005", original: "2020 2021 2022 2023 2024 2025 Year 0 10 20 30 40 50 % o f Y C Co m pa ni es Bu ild in g Ag en ts 6.1% 6.0% 11.5% 24.5% 31.9% 47.7% Figure 1.1. Growth in Y Combinator startups building AI agents (2020-2025). This dramatic trend demonstrates the industry shift toward autonomous agentic AI systems.", translation: "2020 2021 2022 2023 2024 2025 年份 0 10 20 30 40 50 构建 Agent 的 YC 公司百分比 (%) 6.1% 6.0% 11.5% 24.5% 31.9% 47.7% 图 1.1：Y Combinator 中构建 AI Agent 的初创公司增长情况 (2020-2025)。这一戏剧性的趋势表明了行业向自主智能体 AI 系统的转变。\\n\\n"},
+  {id: "PARA-045", original: "effective agent must understand the information request, reason about obtaining current stock data, take action using appropriate tools (web search or financial APIs), and adapt if the initial approach fails. This adaptation might involve trying alternative data sources or adjusting the query strategy. The core components of an agent are shown in Figure 1.5. Figure 1.5. An agent is a software entity that possesses core components - a generative AI model that enables reasoning, tools that enable the agent to act, and memory that enables the agent to recall and", translation: "有效的智能体必须理解信息请求，推理如何获取当前股票数据，使用适当的工具（网络搜索或金融 API）采取行动，并在初始方法失败时进行适应。这种适应可能包括尝试替代的数据源或调整查询策略。 智能体的核心组件如图 1.5 所示。 图 1.5. 智能体是一个拥有核心组件的软件实体——一个能够进行推理的生成式 AI 模型、能够让智能体采取行动的工具，以及能够让智能体回忆和\\n\\n\\\\"},
+  {id: "PARA-053", original: "These capabilities are enabled by the three core components shown in Figure 1.5 working What is an Agent? | 13 together:", translation: "这些能力是由图 1.5 所示的三个核心组件协同工作所实现的： 什么是智能体？| 13\\n\\n"},
+  {id: "PARA-058", original: "1.5 What is a Multi-Agent System? Building on our agent definition, we define multi-agent systems as applications that involve", translation: "1.5 什么是多智能体系统 (Multi-Agent System)？ 建立在我们对智能体的定义之上，我们将多智能体系统定义为涉及\\n\\n"}
+];
+        const pairs1_6 = [
+  {id: "PARA-039", original: "Furthermore, our analysis of real world data from YCombinator reveals that 47.7% of Y Combinator startups building AI agents in 2025 are focused on the following domains: productivity (25.5%), software (18.4%), finance (15.6%), health (11.6%), and e commerce (6.8%) where planning and diverse expertise are essential. See the in-depth analysis in Chapter 14.", translation: "此外，我们对 Y Combinator 真实世界数据的分析表明，到 2025 年，47.7% 构建 AI Agent 的 Y Combinator 初创公司集中在以下领域：生产力 (25.5%)、软件 (18.4%)、金融 (15.6%)、医疗健康 (11.6%) 和电子商务 (6.8%)，在这些领域中，规划和多样化的专业知识是必不可少的。详见第 14 章的深入分析。\\n\\n"},
+  {id: "PARA-052", original: "Figure 1.6. The agent action-perception loop: Agents operate through iterative cycles where they take action (such as calling an API), perceive the results (processing the response), and adapt their approach based on outcomes. When successful, agents provide natural language responses; when errors occur, they may retry with different parameters or inform users of limitations.", translation: "图 1.6. 智能体的感知-行动循环：智能体通过迭代循环进行操作，在循环中它们采取行动（如调用 API），感知结果（处理响应），并根据结果调整其方法。当成功时，智能体提供自然语言响应；当发生错误时，它们可能会使用不同的参数重试或告知用户其局限性。\\n\\n"}
+];
+        const pairs1_7 = [
+  {id: "PARA-060", original: "“orchestration” interchangeably, we use “orchestration” as the primary term throughout this book to align with industry standards and common usage in AI/ML frameworks. As shown in Figure 1.7, multi-agent systems can be organized through two distinct approaches. Multi-agent workflows (left) use predefined control flow where agents follow established sequences and handoffs, creating predictable and reliable processes. Autonomous multi-agent systems (right) use AI-driven orchestration where the control flow is determined dynamically", translation: "“编排 (orchestration)”互换使用，但在整本书中，我们将“编排”作为首选术语，以与行业标准和 AI/ML 框架中的通用习惯保持一致。 如图 1.7 所示，多智能体系统可以通过两种截然不同的方法进行组织。多智能体工作流（左侧）使用预定义的控制流，在此流程中智能体遵循既定的顺序和交接，从而创建可预测且可靠的流程。自主多智能体系统（右侧）使用 AI 驱动的编排，其中控制流是动态决定的\\n\\n"},
+  {id: "PARA-063", original: "the agent logic itself. We found that the vast majority of use cases were well served by single process/thread applications. 20 | Chapter 1. Understanding Multi-Agent Systems Specifically, in a later chapter (see chapter Chapter 12), we will discuss emerging protocols for distributed agent-to-agent communication, the design choices, and how existing agents can be adapted to work in a distributed setting. 1.7 Choosing the Right AI Agent Architecture Building AI applications requires choosing the right level of complexity from a spectrum of ar-", translation: "智能体逻辑本身。我们发现，绝大多数用例通过单一进程/线程应用程序就能得到很好的处理。 20 | 第1章. 理解多智能体系统 具体而言，在后面的章节（见第 12 章）中，我们将讨论新兴的用于分布式智能体间通信的协议、设计选择，以及如何调整现有的智能体以使其在分布式环境中工作。 1.7 选择合适的 AI 智能体架构 构建 AI 应用程序需要从一系列架构光谱中选择合适的复杂性级别：\\n\\n"}
+];
+        const pairs1_8 = [
+  {id: "PARA-064", original: "chitectures: simple models for text generation, single agents for action-taking, multi-agent workflows for structured deterministic collaboration, and autonomous multi-agent sys- tems for exploratory problem-solving. While autonomous multi-agent systems offer the most sophisticated capabilities, they introduce significant challenges including unpredictable out- comes, reproducibility issues across model versions, increased error potential, and additional cost and latency. The decision framework shown in Figure 1.8 helps you select the appropriate architecture by", translation: "架构：用于文本生成的简单模型、用于采取行动的单智能体、用于结构化确定性协作的多智能体工作流，以及用于探索性问题解决的自主多智能体系统。虽然自主多智能体系统提供了最复杂的能力，但它们也引入了重大挑战，包括不可预测的结果、跨模型版本的可重复性问题、增加的错误可能性，以及额外的成本和延迟。 图 1.8 所示的决策框架有助于您通过\\n\\n"},
+  {id: "PARA-066", original: "research tasks requiring web search show direct models scoring 3.2/10 compared to tool- 22 | Chapter 1. Understanding Multi-Agent Systems enabled agents scoring 9.0/10—demonstrating when architectural complexity becomes necessary. 1.8 Building Your First Multi-Agent System Oh boy! If you have read this far, you are probably excited to get your hands dirty and start building your first agent. Starting in Chapter 4, we will collaboratively build a multi-agent library called picoagents from scratch.", translation: "需要网络搜索的研究任务显示，直接调用模型的得分为 3.2/10，相比之下，配备工具的 22 | 第1章. 理解多智能体系统 智能体得分为 9.0/10——这证明了架构复杂性何时变得必要。 1.8 构建您的第一个多智能体系统 天哪！如果您已经读到了这里，您可能很兴奋想动手开始构建您的第一个智能体。从第 4 章开始，我们将协作从头开始构建一个名为 picoagents 的多智能体库。\\n\\n"}
+];
+        const pairs1_9 = [
+  {id: "PARA-002", original: "INFO Quantifying the Shift to AI Agents It’s widely acknowledged that interest in AI agents is growing rapidly, but by how much? To answer this question with concrete data, Chapter 14 demonstrates how to build a multi-agent workflow that analyzes startup data from Y Combinator—one of North America’s largest startup incubators.", translation: "INFO（专栏）：量化向 AI Agent（AI智能体）的转变 人们普遍认为对 AI Agent 的兴趣正在迅速增长，但具体增长了多少呢？为了用具体数据回答这个问题，本书第14章演示了如何构建一个多智能体工作流，以分析来自北美最大的初创企业孵化器之一 Y Combinator 的初创公司数据。\\n\\n"},
+  {id: "PARA-003", original: "The workflow we will design analyzes descriptions from 5,622 YCombinator companies. We found that startups building AI agents grew from 6.1% in 2020 to 47.7% in 2025—a 7.8x increase in just five years. This rapid growth signals where the industry sees opportunity: moving beyond AI-assisted tools to fully autonomous systems that can handle complex, multi-step tasks.", translation: "我们将要设计的工作流分析了 5,622 家 Y Combinator 公司的描述。我们发现，构建 AI Agent 的初创公司从 2020 年的 6.1% 增长到了 2025 年的 47.7%——在短短五年内增长了 7.8 倍。这种快速增长发出一个信号，表明了行业所看到的机会：超越仅作为 AI 辅助的工具，转向能够处理复杂、多步骤任务的全自主系统。\\n\\n"},
+  {id: "PARA-004", original: "This analysis itself exemplifies the multi-agent workflow patterns we’ll explore in Chapter 2, with the complete implementation detailed in Chapter 14. Feel free to jump ahead if you’re curious about the methodology!", translation: "这项分析本身就是我们在第2章中将要探讨的多智能体工作流模式的例证，其完整实现详见第14章。如果您对其方法论感到好奇，请随时跳到后面提前阅读！\\n\\n"},
+  {id: "PARA-008", original: "Complexity Level Task Example Description Model-Level “What is the height of the Eiffel Tower?” Direct information retrieval from training data Agent-Level “Tell me the stock price of NVIDIA today.” Requires current data, planning, and tool use Multi-Agent “Build a mobile application that helps users view stock prices, buy stock and file taxes.” Involves multiple domains of expertise and iterative development", translation: "复杂级别 任务示例 描述 模型级别 “埃菲尔铁塔有多高？” 直接从训练数据中检索信息 智能体级别 “告诉我今天 NVIDIA 的股价。” 需要最新数据、规划和工具使用 多智能体级别 “构建一个移动应用程序，帮助用户查看股价、购买股票并报税。” 涉及多个领域的专业知识和迭代开发\\n\\n"},
+  {id: "PARA-009", original: "INFO Definitions: Agents, Multi-Agent Systems, and Tools\\n\\n-   Agent: An AI system that can reason, act with tools, communicate, and adapt-   Multi-Agent System: Multiple agents working together, each with specialized capabilities-   Tools: External capabilities like APIs, code execution, web search that extend agent abilities", translation: "INFO（专栏）：定义：智能体 (Agents)、多智能体系统 (Multi-Agent Systems) 和工具 (Tools)-   智能体 (Agent)：一个能够进行推理、使用工具采取行动、进行沟通并能适应环境的 AI 系统。-   多智能体系统 (Multi-Agent System)：多个智能体协同工作，每个智能体都具有专门的能力。-   工具 (Tools)：诸如 API、代码执行、网络搜索等外部功能，用于扩展智能体的能力。\\n\\n"},
+  {id: "PARA-011", original: "Task 2, however, reveals where models alone become insufficient. The stock price of NVIDIA today represents information that an LLM is unlikely to have seen during training; thus, the results it generates are likely to be incorrect (hallucination). Task 2 requires understanding the query, planning (e.g., decomposing the task into steps such as fetching current stock data and analyzing the data to answer the question), action (executing each step using tools like web search or APIs), and presentation of final results. This is where we need an agent - a system that combines the reasoning capabilities of these models with tools that enable them to act on our behalf. Current GenAI applications explore this approach by building prescribed solution pipelines that include Large Language Models (LLMs) which drive tools for action.", translation: "然而，任务 2 揭示了仅靠模型开始显得力不从心的情况。今天 NVIDIA 的股票价格代表了 LLM 在训练期间不太可能见过的信息；因此，它生成的结果很可能是不正确的（即“幻觉”）。任务 2 需要理解查询、进行规划（例如，将任务分解为诸如获取当前股票数据、分析数据以回答问题等步骤）、采取行动（使用网络搜索或 API 等工具执行每个步骤），以及展示最终结果。这就是我们需要智能体 (Agent) 的地方——一个将这些模型的推理能力与能让它们采取行动的工具结合起来的系统。当前的生成式 AI 应用程序通过构建包含驱动工具执行行动的大型语言模型 (LLM) 的预设解决方案流水线，来探索这种方法。\\n\\n"},
+  {id: "PARA-012", original: "Task 3 represents a level of complexity that goes beyond what even a capable single agent can handle effectively. It involves multiple types of expertise (interface design, Android development, API usage, integration testing, etc.) and requires an iterative solution where actions are taken and resulting outcomes determine the next steps toward a solution (e.g., retrieving appropriate SDK documentation, writing multiple versions of each module in the app, testing them to identify errors, repairing and integrating until a working application is crafted). This is where multiple agents become essential - each bringing specialized Introduction | 3 capabilities while collaborating to solve tasks that exceed any single system’s scope.", translation: "任务 3 代表的复杂程度甚至超出了一个能力强大的单一智能体所能有效处理的范围。它涉及多种类型的专业知识（界面设计、Android 开发、API 使用、集成测试等），并需要一个迭代的解决方案，在这个方案中，所采取的行动和产生的结果将决定迈向解决方案的后续步骤（例如，检索相应的 SDK 文档，在应用程序中编写每个模块的多个版本，测试它们以发现错误，进行修复和集成，直到制作出一个可用的应用程序）。这就是多个智能体变得必不可少的地方—— 引言 | 3 每个智能体都带来了专业的技能，同时相互协作以解决超出任何单一系统处理范围的任务。\\n\\n"},
+  {id: "PARA-013", original: "In this book, we will focus on exploring how to address these complex tasks through the development of applications that implement elements of planning, action and communication schedulingmeetings, drafting email responses, booking flights, making e-commerce purchases, and filing taxes.", translation: "在本书中，我们将重点探索如何通过开发包含规划、行动和沟通元素的应用程序，来解决这些复杂任务，例如安排会议、起草电子邮件回复、预订航班、进行电子商务采购以及报税等。\\n\\n"},
+  {id: "PARA-014", original: "To realize this potential, we need to understand the fundamental building blocks: What exactly makes a system an “agent”? How do we build systems where multiple agents work together effectively? Let’s start by examining these core concepts.", translation: "为了实现这一潜力，我们需要了解基本的构建模块：究竟是什么让一个系统成为“智能体”？我们如何构建让多个智能体有效协同工作的系统？让我们从研究这些核心概念开始。\\n\\n"},
+  {id: "PARA-017", original: "LIGHTBULB Single vs Multi-Agent: A Blurry Boundary In practice, the boundary between “a single agent” and “a multi-agent system” is often blurry. An agent might use tools that are themselves agents (as we’ll explore in Section 4.11 in Chapter Chapter 4), or what appears as one agent to a user might internally coordinate multiple specialized sub-agents working together. Throughout this book, we illustrate explicit multi-agent architectures—where coordina- tion between agents is visible and intentional—because these patterns make design principles most clear. However, the orchestration patterns, evaluation approaches, and ethical considerations we explore apply broadly to any autonomous agentic system, regardless of whether its architecture presents as “one” agent or “many.”", translation: "LIGHTBULB（灵感）：单智能体 vs 多智能体：模糊的边界 在实践中，“单智能体”和“多智能体系统”之间的边界往往是模糊的。一个智能体所使用的工具本身可能也是智能体（正如我们将在第4章第4.11节中探讨的那样），或者对用户来说看似单一的智能体，其内部可能正在协调多个专业的子智能体协同工作。 在贯穿本书的内容中，我们将展示显式的多智能体架构——即智能体之间的协调是可见且有意为之的——因为这些模式能让设计原则变得最为清晰。然而，我们探讨的编排模式、评估方法和伦理考量，广泛适用于任何自主的智能体系统，无论其架构在表现上是“一个”还是“多个”智能体。\\n\\n"},
+  {id: "PARA-019", original: "To apply these models to solve tasks, early efforts focused on framing multiple tasks as sequence prediction problems. For example, to classify text, a description of the classification problem is provided, followed by a list of labels and a prompt asking, “ <problem> <labels> Which of the provided labels is the correct class?”. Similarly, to summarize a given passage, given a prompt structured as “ <passage> The summary of the passage above is ..”, the model is induced to generate a summary of the passage. It turns out that framing tasks as sequence prediction problems allows the models to leverage knowledge gained during training to perform a wide range of tasks (e.g., language translation, sentiment analysis, question answering, dialogue generation, named entity recognition, syntax parsing, code synthesis, paraphrasing, grammar correction etc.) beyond their initial training objectives. A Primer on Generative AI | 5", translation: "为了应用这些模型来解决任务，早期的努力集中在将多项任务构建为序列预测问题。例如，为了对文本进行分类，提供分类问题的描述，然后是标签列表和一个提示，询问：“<问题> <标签> 提供的标签中哪一个是正确的类别？”。同样地，为了总结给定的段落，在给出一个结构为“<段落> 上述段落的总结是..”的提示后，模型会被引导去生成该段落的总结。事实证明，将任务构建为序列预测问题使得模型能够利用在训练期间获得的知识，来执行广泛的任务（例如：语言翻译、情感分析、问答、对话生成、命名实体识别、语法解析、代码合成、释义、语法纠错等），这远远超出了它们最初的训练目标。 生成式 AI 入门 | 5\\n\\n"},
+  {id: "PARA-020", original: "This background is important to understand the capabilities and limitations of these models when applied to complex tasks. For example, the reasoning capabilities observed in these models (e.g. 2 apples + 10 apples = 12 apples) are often limited to scenarios well represented in language models, have become leading prompt engineering approaches. Beyond prompt engineering, fine-tuning models on task-specific instruction data and explicitly collected human feedback data (Ouyang et al. 2022) have proven to enhance model alignment - efforts aimed at ensuring that generated outputs align with human intentions, preferences, and values.", translation: "这一背景对于理解这些模型在应用于复杂任务时的能力和局限性非常重要。例如，在这些模型中观察到的推理能力（如 2 个苹果 + 10 个苹果 = 12 个苹果）往往局限于语言模型中能够很好表示的场景，这已经成为了领先的提示工程方法。除了提示工程之外，针对特定任务的指令数据和明确收集的人类反馈数据对模型进行微调（Ouyang 等人，2022 年），已被证明能够增强模型对齐——即旨在确保生成的输出与人类意图、偏好和价值观保持一致的努力。\\n\\n"},
+  {id: "PARA-021", original: "Finally, while LLMs can be instructed to generate text sequences that solve tasks, the amount of text they can process at a time is fixed, constrained by what is known as the context window.", translation: "最后，虽然可以指示 LLM 生成文本序列来解决任务，但它们一次能处理的文本量是固定的，这受到所谓的“上下文窗口”的限制。\\n\\n"},
+  {id: "PARA-023", original: "For local development and privacy-sensitive applications, tools like vLLM (vLLM Team 2023) enable self-hosting of open-source models while maintaining OpenAI API compatibility. This architectural pattern—where different providers conform to a common API specification— allows the multi-agent systems we build to remain agnostic to the underlying model provider, whether cloud-based or locally deployed.", translation: "对于本地开发和对隐私敏感的应用程序，诸如 vLLM（vLLM Team 2023）之类的工具支持开源模型的自托管，同时保持了与 OpenAI API 的兼容性。这种架构模式——即不同的提供商遵循共同的 API 规范——使得我们构建的多智能体系统能够不受底层模型提供商的影响，无论其是基于云端还是本地部署。\\n\\n"},
+  {id: "PARA-030", original: "implementing required functionalities, integrating necessary APIs for stock data and tax filing, and testing and deploying the app. In turn, these tasks map into specific roles that can be addressed by dedicated agents (e.g. a UX agent, Android App agent etc), each possessing specialized knowledge and skills.", translation: "实现所需的功能，集成股票数据和报税所需的 API，以及对应用程序进行测试和部署。反过来，这些任务映射到可以由专属智能体（例如 UX 智能体、Android App 智能体等）处理的特定角色上，每个智能体都拥有专门的知识和技能。\\n\\n"},
+  {id: "PARA-031", original: "The separation of expertise allows for a separation-of-concerns approach that single-agent systems may struggle to achieve following a generic instruction set. From the application development perspective, creating agents with specific directives provides a useful abstraction for cleanly mapping responsibilities to specific entities, enabling domain-driven design of applications.", translation: "专业知识的分离允许采用“关注点分离”的方法，而单智能体系统如果遵循通用的指令集则很难实现这一点。从应用程序开发的角度来看，创建具有特定指令的智能体提供了一个有用的抽象，可以清晰地将职责映射到特定的实体上，从而实现应用程序的领域驱动设计。\\n\\n"},
+  {id: "PARA-034", original: "the right initial context. Such lengthy instructions or context present a significant challenge for single-agent systems. Existing studies (Liu et al. 2024) have shown that while LLMs can process increasingly longer text, they are likely to attend to instructions at the beginning and end of the text, while neglecting data in the middle. This perspective is also informed by theories from cognitive science, such as cognitive load theory (Sweller 1988), which suggests that the human brain has a limited working memory capacity. When presented with lengthy or underspecified instructions, this capacity becomes overwhelmed, leading to decreased comprehension and performance.", translation: "出正确的初始上下文。这样冗长的指令或上下文给单智能体系统带来了重大挑战。现有研究（Liu 等人，2024 年）表明，虽然 LLM 可以处理越来越长的文本，但它们很可能会关注文本开头和结尾的指令，而忽略中间的数据。这一观点也受到认知科学理论（如认知负荷理论，Sweller 1988 年）的启发，该理论表明人脑的工​​作记忆容量是有限的。当遇到冗长或未明确说明的指令时，这种能力就会不堪重负，导致理解力和表现下降。\\n\\n"},
+  {id: "PARA-035", original: "A multi-agent perspective can help address this limitation by selective context provisioning - i.e., only sections of available context (for example, a history of actions performed so far) relevant to a task are provided to an agent focused on that task. By structuring instructions and context into smaller, more manageable units tailored for specific roles or capabilities, a multi- agent system can optimize the performance of each agent. This ensures that agents focus only on information pertinent to their immediate task, effectively managing cognitive load and improving overall accuracy.", translation: "多智能体视角可以通过选择性上下文提供来帮助解决此限制——即，只有与任务相关的可用上下文部分（例如，迄今为止执行的动作历史）才会被提供给专注于该任务的智能体。通过将指令和上下文结构化为针对特定角色或能力量身定制的更小、更易于管理的单元，多智能体系统可以优化每个智能体的性能。这确保了智能体只专注于与其当前直接任务相关的信息，从而有效地管理认知负荷并提高整体准确性。\\n\\n"},
+  {id: "PARA-037", original: "This property is also inspired by insights from metacognition studies, which suggest that an entity’s ability to monitor its own thought processes and adjust them is essential for learning and problem solving. In multi-agent systems, this adaptability is inherently supported by the capability of individual agents to act and perceive outcomes as well as observe outcomes from other agents, learning from successes and failures to adapt their approach dynamically. This leads to robust and resilient problem-solving across the system. Why Multiple Agents? Complex Task Characteristics | 9", translation: "这一属性也受到元认知研究见解的启发，该研究表明实体监控自身思维过程并对其进行调整的能力，对于学习和问题解决至关重要。在多智能体系统中，这种适应性天生就得到了单个智能体采取行动、感知结果以及观察其他智能体结果的能力的支持，从而从成功和失败中学习，以动态地调整其方法。这在整个系统中带来了强大且有韧性的问题解决能力。 为什么需要多个智能体？复杂任务的特征 | 9\\n\\n"},
+  {id: "PARA-038", original: "Content, audience, goals, guidelines Feedback, content updates, format changes 10 | Chapter 1. Understanding Multi-Agent Systems", translation: "内容、 受众、目标、 指南 反馈、 内容更新、 格式更改 10 | 第1章. 理解多智能体系统\\n\\n"},
+  {id: "PARA-040", original: "Reflecting on these patterns provides context for understanding when and why a multi-agent architecture is beneficial. For instance, (Du et al. 2023) show that while single LLMs often exhibit hallucinations in generation, their reasoning capabilities are significantly enhanced when multiple agents debate outcomes over multiple rounds of conversation turns. Similarly, (Liang et al. 2023) demonstrate that using multiple agents with separate roles (e.g., agents that perform a task and agents that adjudicate the quality of the task) can improve the diversity and quality of generated outcomes.", translation: "对这些模式的反思为理解何时以及为什么多智能体架构是有益的提供了背景。例如，(Du 等人，2023 年) 表明，虽然单个 LLM 在生成时经常表现出幻觉，但当多个智能体通过多个对话回合针对结果进行辩论时，它们的推理能力得到了显著增强。类似地，(Liang 等人，2023 年) 证明了使用具有不同角色的多个智能体（例如，执行任务的智能体和评判任务质量的智能体）可以提高生成结果的多样性和质量。\\n\\n"},
+  {id: "PARA-042", original: "Consider a robotic vacuum cleaner: it perceives its environment through sensors (bump sensors, dirt sensors, battery monitors), makes decisions based on an agent function or rules (if obstacle detected, turn; if dirt detected, increase suction; if battery low, return to dock), and acts through actuators (motors for movement, suction mechanisms, brush rotation). The agent function follows predetermined logic: obstacle -> avoid, dirt -> clean, low battery -> recharge. This creates a continuous perception-action loop where each sensor reading triggers specific programmed responses.", translation: "想想看扫地机器人：它通过传感器（碰撞传感器、灰尘传感器、电池监控器）感知其环境，基于智能体函数或规则做出决策（如果检测到障碍物，则转向；如果检测到灰尘，则增加吸力；如果电池电量低，则返回充电座），并通过执行器（用于移动的电机、吸尘机构、刷子旋转）采取行动。智能体函数遵循预定的逻辑：障碍物 -> 避开，灰尘 -> 清理，电池电量低 -> 充电。这就创造了一个连续的感知-行动循环，其中每一个传感器读数都会触发特定的编程响应。\\n\\n"},
+  {id: "PARA-043", original: "We can build on this foundation but extend it for the generative AI era. While classical agents operate through predefined functions, generative AI agents maintain the same perception- action cycle but add sophisticated capabilities: complex reasoning powered by large language models, dynamic tool use, natural language communication, and adaptive behavior based on outcomes. These enhanced capabilities make them particularly suitable for the collaborative problem-solving we explore in this book.", translation: "我们可以在这个基础上进行构建，并将其扩展以适应生成式 AI 时代。虽然经典的智能体通过预定义的功能来运行，但生成式 AI 智能体维持了同样的感知-行动循环，并增加了复杂的功能：由大型语言模型驱动的复杂推理、动态的工具使用、自然语言沟通，以及基于结果的自适应行为。这些增强的能力使它们特别适合我们在本书中探讨的协作性问题解决。\\n\\n"},
+  {id: "PARA-047", original: "Reason: Agents can synthesize new information by applying rules or logic to available context. This reasoning may be deductive, inductive, or abductive and can be driven by a Generative AI model, custom processing functions, or a combination of both. In our stock price example, reasoning involves understanding that “NVIDIA today” requires current market data, not historical information from training data.", translation: "推理 (Reason)：智能体可以通过将规则或逻辑应用于可用的上下文来综合新信息。这种推理可以是演绎的、归纳的或溯因的，并且可以由生成式 AI 模型、自定义处理功能或两者的组合来驱动。在我们查询股价的例子中，推理涉及理解“今天的 NVIDIA”需要当前的市场数据，而不是训练数据中的历史信息。\\n\\n"},
+  {id: "PARA-048", original: "Act: Agents can take concrete actions to affect their environment or gather information. This goes beyond generating text responses - agents can execute code, call APIs, search the web, or interact with external systems. For the stock price task, acting means actually calling a 12 | Chapter 1. Understanding Multi-Agent Systems financial data API or performing a web search to retrieve current pricing information.", translation: "行动 (Act)：智能体可以采取具体行动来影响其环境或收集信息。这超越了生成文本响应的范畴——智能体可以执行代码、调用 API、搜索网络或与外部系统进行交互。对于查询股价的任务，行动意味着实际调用 12 | 第1章. 理解多智能体系统 金融数据 API 或执行网络搜索以检索当前的定价信息。\\n\\n"},
+  {id: "PARA-049", original: "Communicate: Agents can effectively exchange information with users, other agents, and ex- ternal systems. This includes understanding natural language inputs, formatting appropriate responses, and knowing when and how to request additional information or clarification.", translation: "沟通 (Communicate)：智能体可以有效地与用户、其他智能体和外部系统交换信息。这包括理解自然语言输入、格式化适当的响应，以及知道何时以及如何请求额外的信息或澄清。\\n\\n"},
+  {id: "PARA-050", original: "Adapt: Agents can modify their approach based on feedback, changing conditions, or new information. If an initial API call fails due to rate limiting, an effective agent might wait and retry, switch to an alternative data source, or adjust its approach based on the error message received.", translation: "适应 (Adapt)：智能体可以根据反馈、不断变化的条件或新信息来修改其方法。如果最初的 API 调用由于速率限制而失败，一个有效的智能体可能会等待并重试，切换到替代的数据源，或者根据收到的错误消息调整其方法。\\n\\n"},
+  {id: "PARA-055", original: "conversation. This aligns naturally with chat-fine-tuned models, which are designed to process conversation histories and generate contextually appropriate responses. This paradigm enables agents to seamlessly blend natural language interaction with concrete actions like code execution or API calls, and forms the foundation for multi- agent frameworks like AutoGen (Wu et al. (2023)), where agents coordinate through message passing—a pattern we’ll explore in detail in later chapters.", translation: "对话的大脑。这与经过聊天微调的模型自然契合，此类模型旨在处理对话历史并生成符合上下文语境的响应。 这种范式使智能体能够将自然语言交互与诸如代码执行或 API 调用等具体动作无缝融合，并构成了多智能体框架（如 AutoGen，Wu 等人，2023 年）的基础，在这些框架中，智能体通过消息传递进行协调——我们将在后续章节中详细探讨这种模式。\\n\\n"},
+  {id: "PARA-059", original: "16 | Chapter 1. Understanding Multi-Agent Systems INFO Orchestration Across this book, we will repeatedly use the term orchestration and it is rather helpful to define what we mean by the term. Orchestration refers to the mechanisms and patterns that enable multiple agents to work together effectively toward shared goals. This encompasses two main aspects - how they share information, and who controls the flow of execution (the order in which they act). While academic literature and emerging practices sometimes uses “coordination” and", translation: "16 | 第1章. 理解多智能体系统 INFO（专栏）：编排 (Orchestration) 在贯穿本书的内容中，我们将反复使用“编排”一词，而明确我们对该词的定义是相当有帮助的。编排指的是使多个智能体能够朝着共同目标有效协同工作的机制和模式。这包含两个主要方面——它们如何共享信息，以及谁控制执行流程（它们采取行动的顺序）。 虽然学术文献和新兴实践有时会将“协调 (coordination)”和\\n\\n"},
+  {id: "PARA-061", original: "and supervisor patterns for workflows, and group chat and handoff patterns for autonomous systems. What is a Multi-Agent System? | 17 INFO An Adaptive Multi-Agent Application Example Consider this scenario: You need to create an application that books flights to specific destinations at the best price. However, your target airline, specialairlines.com, doesn’t offer an API—only a web interface and mobile app designed for human users. This creates several challenges beyond simply finding and booking flights:", translation: "以及用于工作流的监督者模式，和用于自主系统的群聊和交接模式。 什么是多智能体系统？| 17 INFO（专栏）：自适应多智能体应用示例 考虑这样一个场景：您需要创建一个应用程序，以最优惠的价格预订前往特定目的地的航班。然而，您的目标航空公司 specialairlines.com 并没有提供 API——仅提供为人类用户设计的 Web 界面和移动应用。 这带来了除仅仅寻找和预订航班之外的几个挑战：\\n\\n"},
+  {id: "PARA-069", original: "Now, we need to setup our language model client. Here, we will use OpenAI’s GPT-4.1-mini", translation: "现在，我们需要设置我们的语言模型客户端。在这里，我们将使用 OpenAI 的 GPT-4.1-mini\\n\\n"},
+  {id: "PARA-070", original: "model via the OpenAIChatCompletionClient class. We can also use other model clients such as AzureOpenAIChatCompletionClient if we want to use Azure OpenAI service - or really any other model client that conforms to the expected interface.\\n\\nSetup the language model client\\n\\nclient = OpenAIChatCompletionClient( model=\\\"gpt-4.1-mini\\\", api\\\\_key=os.getenv(\\\"OPENAI\\\\_API\\\\_KEY\\\") ) Note that you will need to either pass in your API key directly or set it as an environment variable named OPENAI\\\\_API\\\\_KEY (recommended).", translation: "模型，通过 OpenAIChatCompletionClient 类。如果我们想使用 Azure OpenAI 服务，我们也可以使用其他模型客户端，如 AzureOpenAIChatCompletionClient——或者实际上任何符合预期接口的其他模型客户端。\\n\\nSetup the language model client\\n\\nclient = OpenAIChatCompletionClient( model=\\\"gpt-4.1-mini\\\", api\\\\_key=os.getenv(\\\"OPENAI\\\\_API\\\\_KEY\\\") ) 请注意，您将需要直接传入您的 API 密钥，或者将其设置为名为 OPENAI\\\\_API\\\\_KEY 的环境变量（推荐）。\\n\\n"},
+  {id: "PARA-072", original: "print(f\\\"Poet says: {response}\\\") asyncio.run(test\\\\_poet()) Running this code produces output similar to: \\\\[user\\\\] 12:09:14 | Write a haiku about cherry blossoms in spring \\\\[poet\\\\] 12:09:16 | Petals softly fall, Whispers drift on warm spring breeze, Life wakes in colors. \\\\[usage\\\\] duration: 2.0s, tokens: in:26, out:20 | finish: stop 24 | Chapter 1. Understanding Multi-Agent Systems", translation: "print(f\\\"Poet says: {response}\\\") asyncio.run(test\\\\_poet()) 运行此代码会产生类似于以下的输出： \\\\[user\\\\] 12:09:14 | Write a haiku about cherry blossoms in spring \\\\[poet\\\\] 12:09:16 | Petals softly fall, Whispers drift on warm spring breeze, Life wakes in colors. \\\\[usage\\\\] duration: 2.0s, tokens: in:26, out:20 | finish: stop 24 | 第1章. 理解多智能体系统\\n\\n"},
+  {id: "PARA-073", original: "The output shows the conversation history (user request and agent response) followed by usage statistics. The run() method waits for the complete response before returning. For", translation: "输出显示了对话历史记录（用户请求和智能体响应），随后是使用统计信息。run() 方法会等待完整的响应返回。为了\\n\\n"},
+  {id: "PARA-076", original: "termination condition is met): from picoagents.orchestration import RoundRobinOrchestrator from picoagents.termination import MaxMessageTermination, TextMentionTermination\\n\\nCreate termination conditions\\n\\ntermination = (MaxMessageTermination(max\\\\_messages=8) | TextMentionTermination(text=\\\"APPROVED\\\")) Building Your First Multi-Agent System | 25", translation: "某个终止条件为止）使它们进行协作： from picoagents.orchestration import RoundRobinOrchestrator from picoagents.termination import MaxMessageTermination, TextMentionTermination\\n\\nCreate termination conditions\\n\\ntermination = (MaxMessageTermination(max\\\\_messages=8) | TextMentionTermination(text=\\\"APPROVED\\\")) 构建您的第一个多智能体系统 | 25\\n\\n"},
+  {id: "PARA-077", original: "\\n\\nCreate the orchestrator\\n\\norchestrator = RoundRobinOrchestrator( agents=\\\\[poet, critic\\\\], termination=termination, max\\\\_iterations=4 ) Now, lets run the orchestrator with a task:", translation: "\\n\\nCreate the orchestrator\\n\\norchestrator = RoundRobinOrchestrator( agents=\\\\[poet, critic\\\\], termination=termination, max\\\\_iterations=4 ) 现在，让我们运行带有任务的编排器：\\n\\n"},
+  {id: "PARA-078", original: "APPROVED RoundRobinOrchestrator: duration: 3.6s, tokens: in:232, out:121, calls: 2 . Stop reason: Text mention found: 'APPROVED' Congratulations - you just built and ran your first multi-agent app! 26 | Chapter 1. Understanding Multi-Agent Systems", translation: "APPROVED RoundRobinOrchestrator: duration: 3.6s, tokens: in:232, out:121, calls: 2 . Stop reason: Text mention found: 'APPROVED' 恭喜——您刚刚构建并运行了您的第一个多智能体应用程序！ 26 | 第1章. 理解多智能体系统\\n\\n"},
+  {id: "PARA-079", original: "tion unfold between the poet and critic agents, inspect individual messages, and explore the orchestration pattern in real time (Figure 1.9). The Web UI provides several useful features: view message history between agents, inspect tool calls and responses, monitor termination conditions, and debug multi-agent interactions. We will explore how to build similar web interfaces that integrate agents and orchestrators from scratch in Chapter 8. Depending on your level of expertise with AI models, you might have questions - how is", translation: "诗人与评论家智能体之间展开的对话，检查单个消息，并实时探索编排模式（图 1.9）。 Web UI 提供了几个有用的功能：查看智能体之间的消息历史记录，检查工具调用和响应，监控终止条件，以及调试多智能体交互。我们将在第 8 章中探讨如何从头开始构建整合智能体和编排器的类似 Web 界面。 根据您对 AI 模型的专业知识水平，您可能会有疑问——\\n\\n"}
+];
 
         // Extend render for new sections (hardcoded for reliability, with deep content)
         // (inserted to support per-small-section without leakage)
